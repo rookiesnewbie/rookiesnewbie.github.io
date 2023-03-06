@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>BlogLee</title>
+  
+  <subtitle>BlogLee</subtitle>
+  <link href="https://rookiesnewbie.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://rookiesnewbie.github.io/"/>
+  <updated>2023-03-04T15:34:55.571Z</updated>
+  <id>https://rookiesnewbie.github.io/</id>
+  
+  <author>
+    <name>BlogLee</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/05/hello-world/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/05/hello-world/</id>
+    <published>2023-03-05T06:39:03.154Z</published>
+    <updated>2023-03-04T15:34:55.571Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>全局异常</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/quan-ju-yi-chang-lei/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/quan-ju-yi-chang-lei/</id>
+    <published>2023-03-03T02:05:11.000Z</published>
+    <updated>2023-03-03T01:08:37.376Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;统一返回结果对象&quot;&gt;&lt;a href=&quot;#统一返回结果对象&quot; class=&quot;headerlink&quot; title=&quot;统一返回结果对象&quot;&gt;&lt;/a&gt;统一返回结果对象&lt;/h1&gt;&lt;p&gt;项目中我们会将响应封装成json返回，一般我们会将所有接口的数据格式统一， 使前端(iOS</summary>
+        
+      
+    
+    
+    
+    
+    <category term="全局异常" scheme="https://rookiesnewbie.github.io/tags/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringCloud</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/springcloud/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/springcloud/</id>
+    <published>2023-03-03T01:55:11.000Z</published>
+    <updated>2023-03-03T01:13:24.977Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SpringCloud&quot;&gt;&lt;a href=&quot;#SpringCloud&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud&quot;&gt;&lt;/a&gt;SpringCloud&lt;/h1&gt;&lt;h2 id=&quot;问题（面试题）&quot;&gt;&lt;a href=&quot;#问题（面试题）&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="SpringCloud" scheme="https://rookiesnewbie.github.io/tags/SpringCloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringSecurity</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/springsecurity/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/springsecurity/</id>
+    <published>2023-03-03T01:50:11.000Z</published>
+    <updated>2023-03-03T01:14:27.916Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SpringSecurity&quot;&gt;&lt;a href=&quot;#SpringSecurity&quot; class=&quot;headerlink&quot; title=&quot;SpringSecurity&quot;&gt;&lt;/a&gt;SpringSecurity&lt;/h1&gt;&lt;h2 id=&quot;1-1概要&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="SpringSecurity" scheme="https://rookiesnewbie.github.io/tags/SpringSecurity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/nginx/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/nginx/</id>
+    <published>2023-03-03T01:45:11.000Z</published>
+    <updated>2023-03-03T01:12:50.075Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Nginx&quot;&gt;&lt;a href=&quot;#Nginx&quot; class=&quot;headerlink&quot; title=&quot;Nginx&quot;&gt;&lt;/a&gt;Nginx&lt;/h1&gt;&lt;h2 id=&quot;Nginx介绍&quot;&gt;&lt;a href=&quot;#Nginx介绍&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Nginx" scheme="https://rookiesnewbie.github.io/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL8.0安装</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/mysql-an-zhuang/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/mysql-an-zhuang/</id>
+    <published>2023-03-03T01:40:11.000Z</published>
+    <updated>2023-03-03T01:12:19.394Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;MySQL8-0安装&quot;&gt;&lt;a href=&quot;#MySQL8-0安装&quot; class=&quot;headerlink&quot; title=&quot;MySQL8.0安装&quot;&gt;&lt;/a&gt;MySQL8.0安装&lt;/h2&gt;&lt;p&gt;官网：&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="MySQL" scheme="https://rookiesnewbie.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringMVC+Thymeleaf</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/springmvc-thymleaf/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/springmvc-thymleaf/</id>
+    <published>2023-03-03T01:40:11.000Z</published>
+    <updated>2023-03-03T01:14:04.998Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SpringMVC-Thymeleaf&quot;&gt;&lt;a href=&quot;#SpringMVC-Thymeleaf&quot; class=&quot;headerlink&quot; title=&quot;SpringMVC+Thymeleaf&quot;&gt;&lt;/a&gt;SpringMVC+Thymeleaf&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    
+    <category term="SpringMVC+Thymeleaf" scheme="https://rookiesnewbie.github.io/tags/SpringMVC-Thymeleaf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/mysql/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/mysql/</id>
+    <published>2023-03-03T01:35:11.000Z</published>
+    <updated>2023-03-03T01:11:58.348Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;MySQL&quot;&gt;&lt;a href=&quot;#MySQL&quot; class=&quot;headerlink&quot; title=&quot;MySQL&quot;&gt;&lt;/a&gt;MySQL&lt;/h2&gt;&lt;h2 id=&quot;SQL的分类&quot;&gt;&lt;a href=&quot;#SQL的分类&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="MySQL" scheme="https://rookiesnewbie.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MybatisPlus快速构建springboot项目</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/mybatisplus-kuai-su-gou-jian-springboot-xiang-mu/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/mybatisplus-kuai-su-gou-jian-springboot-xiang-mu/</id>
+    <published>2023-03-03T01:25:11.000Z</published>
+    <updated>2023-03-03T01:11:35.058Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MybatisPlus快速构建springboot项目&quot;&gt;&lt;a href=&quot;#MybatisPlus快速构建springboot项目&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="MybatisPlus" scheme="https://rookiesnewbie.github.io/tags/MybatisPlus/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/docker/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/docker/</id>
+    <published>2023-03-03T01:20:11.000Z</published>
+    <updated>2023-03-03T01:09:41.242Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;docker&quot;&gt;&lt;a href=&quot;#docker&quot; class=&quot;headerlink&quot; title=&quot;docker&quot;&gt;&lt;/a&gt;&lt;a href=&quot;&quot;&gt;docker&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;环境查看&quot;&gt;&lt;a href=&quot;#环境查看&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="docker" scheme="https://rookiesnewbie.github.io/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HashMap</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/hashmap/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/hashmap/</id>
+    <published>2023-03-03T01:15:11.000Z</published>
+    <updated>2023-03-03T01:11:06.001Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;HashMap&quot;&gt;&lt;a href=&quot;#HashMap&quot; class=&quot;headerlink&quot; title=&quot;HashMap&quot;&gt;&lt;/a&gt;HashMap&lt;/h1&gt;&lt;h2 id=&quot;HashMap集合的简介&quot;&gt;&lt;a href=&quot;#HashMap集合的简介&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="HashMap" scheme="https://rookiesnewbie.github.io/tags/HashMap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/vue-zu-jian/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/vue-zu-jian/</id>
+    <published>2023-03-03T01:10:11.000Z</published>
+    <updated>2023-03-03T01:14:54.109Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;vue组件&quot;&gt;&lt;a href=&quot;#vue组件&quot; class=&quot;headerlink&quot; title=&quot;vue组件&quot;&gt;&lt;/a&gt;vue组件&lt;/h1&gt;&lt;h2 id=&quot;注册组件的基本步骤&quot;&gt;&lt;a href=&quot;#注册组件的基本步骤&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="vue" scheme="https://rookiesnewbie.github.io/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>类图</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/lei-tu/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/lei-tu/</id>
+    <published>2023-03-03T01:08:11.000Z</published>
+    <updated>2023-03-03T01:08:06.763Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;类图&quot;&gt;&lt;a href=&quot;#类图&quot; class=&quot;headerlink&quot; title=&quot;类图&quot;&gt;&lt;/a&gt;类图&lt;/h1&gt;&lt;h2 id=&quot;1、泛化&quot;&gt;&lt;a href=&quot;#1、泛化&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="类图" scheme="https://rookiesnewbie.github.io/tags/%E7%B1%BB%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>index</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/index/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/index/</id>
+    <published>2023-03-03T01:05:11.000Z</published>
+    <updated>2023-03-03T01:05:11.714Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hadoop</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/hadoop/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/hadoop/</id>
+    <published>2023-03-03T01:05:11.000Z</published>
+    <updated>2023-03-03T01:10:32.524Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Hadoop&quot;&gt;&lt;a href=&quot;#Hadoop&quot; class=&quot;headerlink&quot; title=&quot;Hadoop&quot;&gt;&lt;/a&gt;Hadoop&lt;/h1&gt;&lt;h2 id=&quot;一、Hadoop概述&quot;&gt;&lt;a href=&quot;#一、Hadoop概述&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="hadoop" scheme="https://rookiesnewbie.github.io/tags/hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java集合</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/ji-he/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/ji-he/</id>
+    <published>2023-03-03T01:05:11.000Z</published>
+    <updated>2023-03-03T01:07:43.229Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;集合&quot;&gt;&lt;a href=&quot;#集合&quot; class=&quot;headerlink&quot; title=&quot;集合&quot;&gt;&lt;/a&gt;集合&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Java集合" scheme="https://rookiesnewbie.github.io/tags/Java%E9%9B%86%E5%90%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker升级版</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/docker2022/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/docker2022/</id>
+    <published>2023-03-03T01:05:11.000Z</published>
+    <updated>2023-03-03T01:10:12.246Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Docker2022&quot;&gt;&lt;a href=&quot;#Docker2022&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="docker" scheme="https://rookiesnewbie.github.io/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java数据结构与算法</title>
+    <link href="https://rookiesnewbie.github.io/2023/03/03/shu-ju-jie-gou-yu-suan-fa/"/>
+    <id>https://rookiesnewbie.github.io/2023/03/03/shu-ju-jie-gou-yu-suan-fa/</id>
+    <published>2023-03-03T01:05:11.000Z</published>
+    <updated>2023-03-03T01:09:07.808Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;数据结构与算法（java）&quot;&gt;&lt;a href=&quot;#数据结构与算法（java）&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Java数据结构与算法" scheme="https://rookiesnewbie.github.io/tags/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+</feed>

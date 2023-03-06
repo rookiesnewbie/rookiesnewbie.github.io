@@ -1,0 +1,3739 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java集合, BlogLee">
+    <meta name="description" content="集合
+
+Collection接口常用的方法
+add(E e) 确保此集合包含指定的元素（可选操作）。public class Demo01 {
+    public static void main(String[] args) {
+   ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Java集合 | BlogLee</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="BlogLee" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">BlogLee</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Concat</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">BlogLee</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Concat
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java集合</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java%E9%9B%86%E5%90%88/">
+                                <span class="chip bg-color">Java集合</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-03-03
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    12.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    59 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922200412194.png" alt="image-20220922200412194"></p>
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922201301064.png" alt="image-20220922201301064"></p>
+<h2 id="Collection接口常用的方法"><a href="#Collection接口常用的方法" class="headerlink" title="Collection接口常用的方法"></a>Collection接口常用的方法</h2><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922205539004.png" alt="image-20220922205539004"></p>
+<h3 id="add-E-e-确保此集合包含指定的元素（可选操作）。"><a href="#add-E-e-确保此集合包含指定的元素（可选操作）。" class="headerlink" title="add(E e) 确保此集合包含指定的元素（可选操作）。"></a>add(E e) 确保此集合包含指定的元素（可选操作）。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+        /**
+         * Collection接口常用的方法：
+         * 增加：
+         *          add(E e)确保此集合包含指定的元素（可选操作）。
+         *          addAll(Collection&lt;? extends E&gt; c) 将指定集合中的所有元素添加到这个集合（可选操作）。
+         * 修改：
+         * 删除:
+         *      clear()从这个集合中移除所有的元素（可选操作）。
+         *      remove(Object o) 从这个集合中移除指定元素的一个实例，如果它是存在的（可选操作）。
+         * 查看：iterator() 返回此集合中的元素的迭代器。
+         * 判断：
+         *         contains(Object o) 返回此集合中的元素的迭代器。
+         *         equals(Object o) 将指定的对象与此集合进行比较，以进行相等性。
+         *         isEmpty() 返回 true如果集合不包含任何元素。
+         */
+
+
+        //通过Collection的实现类来创建对象（也就是多态）
+        Collection col = new ArrayList();
+
+        //添加add(E e)
+        col.add(18);
+        col.add(13);
+        col.add(20);
+        col.add(30);
+        System.out.println(col);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922205846242.png" alt="image-20220922205846242"></p>
+<h3 id="addAll-Collection-lt-extends-E-gt-c-将指定集合中的所有元素添加到这个集合（可选操作）。"><a href="#addAll-Collection-lt-extends-E-gt-c-将指定集合中的所有元素添加到这个集合（可选操作）。" class="headerlink" title="addAll(Collection<?  extends E> c)  将指定集合中的所有元素添加到这个集合（可选操作）。"></a>addAll(Collection&lt;?  extends E&gt; c)  将指定集合中的所有元素添加到这个集合（可选操作）。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+        /**
+         * Collection接口常用的方法：
+         * 增加：
+         *          add(E e)确保此集合包含指定的元素（可选操作）。
+         *          addAll(Collection&lt;? extends E&gt; c) 将指定集合中的所有元素添加到这个集合（可选操作）。
+         * 修改：
+         * 删除:
+         *      clear()从这个集合中移除所有的元素（可选操作）。
+         *      remove(Object o) 从这个集合中移除指定元素的一个实例，如果它是存在的（可选操作）。
+         * 查看：iterator() 返回此集合中的元素的迭代器。
+         * 判断：
+         *         contains(Object o) 返回此集合中的元素的迭代器。
+         *         equals(Object o) 将指定的对象与此集合进行比较，以进行相等性。
+         *         isEmpty() 返回 true如果集合不包含任何元素。
+         */
+
+
+        //通过Collection的实现类来创建对象（也就是多态）
+        Collection col = new ArrayList();
+
+        //添加add(E e)
+        col.add(18);
+        col.add(13);
+        col.add(20);
+        col.add(30);
+        //System.out.println(col);
+
+        //添加addAll(Collection&lt;? extends E&gt; c)
+        List&lt;Integer&gt; list = Arrays.asList(new Integer[]{20, 50, 45, 35});
+        col.addAll(list);
+        System.out.println(col);
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922205921408.png" alt="image-20220922205921408"></p>
+<h3 id="clear-从这个集合中移除所有的元素（可选操作）。"><a href="#clear-从这个集合中移除所有的元素（可选操作）。" class="headerlink" title="clear()从这个集合中移除所有的元素（可选操作）。"></a>clear()从这个集合中移除所有的元素（可选操作）。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+        /**
+         * Collection接口常用的方法：
+         * 增加：
+         *          add(E e)确保此集合包含指定的元素（可选操作）。
+         *          addAll(Collection&lt;? extends E&gt; c) 将指定集合中的所有元素添加到这个集合（可选操作）。
+         * 修改：
+         * 删除:
+         *      clear()从这个集合中移除所有的元素（可选操作）。
+         *      remove(Object o) 从这个集合中移除指定元素的一个实例，如果它是存在的（可选操作）。
+         * 查看：iterator() 返回此集合中的元素的迭代器。
+         * 判断：
+         *         contains(Object o) 返回此集合中的元素的迭代器。
+         *         equals(Object o) 将指定的对象与此集合进行比较，以进行相等性。
+         *         isEmpty() 返回 true如果集合不包含任何元素。
+         */
+
+
+        //通过Collection的实现类来创建对象（也就是多态）
+        Collection col = new ArrayList();
+
+        //添加add(E e)
+        col.add(18);
+        col.add(13);
+        col.add(20);
+        col.add(30);
+       
+        //清空集合
+        col.clear();
+
+        System.out.println("集合的个数为："+col.size());
+        System.out.println("集合是否为空"+col.isEmpty()); 
+   
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922210153128.png" alt="image-20220922210153128"></p>
+<h3 id="contains-Object-o-返回-true如果集合包含指定元素。"><a href="#contains-Object-o-返回-true如果集合包含指定元素。" class="headerlink" title="contains(Object o)返回 true如果集合包含指定元素。"></a>contains(Object o)返回 true如果集合包含指定元素。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">package cn.codesheep.test.Collection;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
+public class Demo01 {
+    public static void main(String[] args) {
+        /**
+         * Collection接口常用的方法：
+         * 增加：
+         *          add(E e)确保此集合包含指定的元素（可选操作）。
+         *          addAll(Collection&lt;? extends E&gt; c) 将指定集合中的所有元素添加到这个集合（可选操作）。
+         * 修改：
+         * 删除:
+         *      clear()从这个集合中移除所有的元素（可选操作）。
+         *      remove(Object o) 从这个集合中移除指定元素的一个实例，如果它是存在的（可选操作）。
+         * 查看：iterator() 返回此集合中的元素的迭代器。
+         * 判断：
+         *         contains(Object o) 返回此集合中的元素的迭代器。
+         *         equals(Object o) 将指定的对象与此集合进行比较，以进行相等性。
+         *         isEmpty() 返回 true如果集合不包含任何元素。
+         */
+
+
+        //通过Collection的实现类来创建对象（也就是多态）
+        Collection col = new ArrayList();
+
+        //添加add(E e)
+        col.add(18);
+        col.add(13);
+        col.add(20);
+        col.add(30);
+
+        System.out.println(col);
+
+        System.out.println("集合中的是否包含15除"+col.contains(15));
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922210919347.png" alt="image-20220922210919347"></p>
+<h3 id="equals-Object-o-将指定的对象与此集合进行比较，以进行相等性。"><a href="#equals-Object-o-将指定的对象与此集合进行比较，以进行相等性。" class="headerlink" title="equals(Object o)  将指定的对象与此集合进行比较，以进行相等性。"></a>equals(Object o)  将指定的对象与此集合进行比较，以进行相等性。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+        /**
+         * Collection接口常用的方法：
+         * 增加：
+         *          add(E e)确保此集合包含指定的元素（可选操作）。
+         *          addAll(Collection&lt;? extends E&gt; c) 将指定集合中的所有元素添加到这个集合（可选操作）。
+         * 修改：
+         * 删除:
+         *      clear()从这个集合中移除所有的元素（可选操作）。
+         *      remove(Object o) 从这个集合中移除指定元素的一个实例，如果它是存在的（可选操作）。
+         * 查看：iterator() 返回此集合中的元素的迭代器。
+         * 判断：
+         *         contains(Object o) 返回此集合中的元素的迭代器。
+         *         equals(Object o) 将指定的对象与此集合进行比较，以进行相等性。
+         *         isEmpty() 返回 true如果集合不包含任何元素。
+         */
+
+        Collection col1 = new ArrayList();
+//        List&lt;Integer&gt; list1 = Arrays.asList(new Integer[]{5, 4, 36, 2, 1});
+//        col1.addAll(list1);
+        col1.add(1);
+        col1.add(2);
+        col1.add(3);
+
+
+        Collection col2 = new ArrayList();
+//        List&lt;Integer&gt; list2 = Arrays.asList(new Integer[]{5, 4, 36, 2, 1});
+//        col1.addAll(list2);
+        col2.add(1);
+        col2.add(2);
+        col2.add(3);
+
+		System.out.println("集合col1与集合col2是否相等："+ (col1==col2));//由于col与col1是两个不同的对象，所有内存地址一定不相等
+        System.out.println("集合col1与集合col2的元素是否相等："+ col1.equals(col2));//判断集合col1与col2的元素是否相等,注意如果使用List&lt;Integer&gt; list2 = Arrays.asList(new Integer[]{5, 4, 36, 2, 1});往集合添加数据则这两个集合不相等
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922211011742.png" alt="image-20220922211011742"></p>
+<h3 id="isEmpty-返回-true如果集合不包含任何元素。"><a href="#isEmpty-返回-true如果集合不包含任何元素。" class="headerlink" title="isEmpty()  返回 true如果集合不包含任何元素。"></a>isEmpty()  返回 true如果集合不包含任何元素。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+        /**
+         * Collection接口常用的方法：
+         * 增加：
+         *          add(E e)确保此集合包含指定的元素（可选操作）。
+         *          addAll(Collection&lt;? extends E&gt; c) 将指定集合中的所有元素添加到这个集合（可选操作）。
+         * 修改：
+         * 删除:
+         *      clear()从这个集合中移除所有的元素（可选操作）。
+         *      remove(Object o) 从这个集合中移除指定元素的一个实例，如果它是存在的（可选操作）。
+         * 查看：iterator() 返回此集合中的元素的迭代器。
+         * 判断：
+         *         contains(Object o) 返回此集合中的元素的迭代器。
+         *         equals(Object o) 将指定的对象与此集合进行比较，以进行相等性。
+         *         isEmpty() 返回 true如果集合不包含任何元素。
+         */
+
+
+        //通过Collection的实现类来创建对象（也就是多态）
+        Collection col = new ArrayList();
+
+        //添加add(E e)
+        col.add(18);
+        col.add(13);
+        col.add(20);
+        col.add(30);
+
+        //添加addAll(Collection&lt;? extends E&gt; c)
+        List&lt;Integer&gt; list = Arrays.asList(new Integer[]{20, 50, 45, 35});
+        col.addAll(list);
+        System.out.println(col);
+        System.out.println("集合是否为空"+col.isEmpty());
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922211053085.png" alt="image-20220922211053085"></p>
+<h3 id="remove-Object-o-从这个集合中移除指定元素的一个实例，如果它是存在的（可选操作）。"><a href="#remove-Object-o-从这个集合中移除指定元素的一个实例，如果它是存在的（可选操作）。" class="headerlink" title="remove(Object o)  从这个集合中移除指定元素的一个实例，如果它是存在的（可选操作）。"></a>remove(Object o)  从这个集合中移除指定元素的一个实例，如果它是存在的（可选操作）。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+        /**
+         * Collection接口常用的方法：
+         * 增加：
+         *          add(E e)确保此集合包含指定的元素（可选操作）。
+         *          addAll(Collection&lt;? extends E&gt; c) 将指定集合中的所有元素添加到这个集合（可选操作）。
+         * 修改：
+         * 删除:
+         *      clear()从这个集合中移除所有的元素（可选操作）。
+         *      remove(Object o) 从这个集合中移除指定元素的一个实例，如果它是存在的（可选操作）。
+         * 查看：iterator() 返回此集合中的元素的迭代器。
+         * 判断：
+         *         contains(Object o) 返回此集合中的元素的迭代器。
+         *         equals(Object o) 将指定的对象与此集合进行比较，以进行相等性。
+         *         isEmpty() 返回 true如果集合不包含任何元素。
+         */
+
+
+        //通过Collection的实现类来创建对象（也就是多态）
+        Collection col = new ArrayList();
+
+        //添加add(E e)
+        col.add(18);
+        col.add(13);
+        col.add(20);
+        col.add(30);
+        System.out.println(col);
+
+        boolean remove = col.remove(20);
+        System.out.println("集合中的元素20是否已经移除：" + remove);
+	    System.out.println(col);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922211143503.png" alt="image-20220922211143503"></p>
+<h3 id="size-返回此集合中的元素的数目。"><a href="#size-返回此集合中的元素的数目。" class="headerlink" title="size()  返回此集合中的元素的数目。"></a>size()  返回此集合中的元素的数目。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">package cn.codesheep.test.Collection;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
+public class Demo01 {
+    public static void main(String[] args) {
+        /**
+         * Collection接口常用的方法：
+         * 增加：
+         *          add(E e)确保此集合包含指定的元素（可选操作）。
+         *          addAll(Collection&lt;? extends E&gt; c) 将指定集合中的所有元素添加到这个集合（可选操作）。
+         * 修改：
+         * 删除:
+         *      clear()从这个集合中移除所有的元素（可选操作）。
+         *      remove(Object o) 从这个集合中移除指定元素的一个实例，如果它是存在的（可选操作）。
+         * 查看：iterator() 返回此集合中的元素的迭代器。
+         * 判断：
+         *         contains(Object o) 返回此集合中的元素的迭代器。
+         *         equals(Object o) 将指定的对象与此集合进行比较，以进行相等性。
+         *         isEmpty() 返回 true如果集合不包含任何元素。
+         */
+
+
+        //通过Collection的实现类来创建对象（也就是多态）
+        Collection col = new ArrayList();
+
+        //添加add(E e)
+        col.add(18);
+        col.add(13);
+        col.add(20);
+        col.add(30);
+        System.out.println(col);
+
+        System.out.println("集合的个数为："+col.size());
+  
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922211226785.png" alt="image-20220922211226785"></p>
+<h3 id="iterator-返回此集合中的元素的迭代器。-即遍历集合"><a href="#iterator-返回此集合中的元素的迭代器。-即遍历集合" class="headerlink" title="iterator()返回此集合中的元素的迭代器。 即遍历集合"></a>iterator()返回此集合中的元素的迭代器。 即遍历集合</h3><p>==<strong>注意：对集合进行遍历时不能用普通for循环，只能用增强for循环或while循环</strong>==</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo02 {
+    public static void main(String[] args) {
+
+        Collection col = new ArrayList();
+
+        //添加add(E e)
+        col.add(18);
+        col.add(13);
+        col.add(20);
+        col.add(30);
+
+        //对集合进行遍历时不能用普通for循环，只能用增强for循环或while循环
+
+        //增强for循环
+        for (Object o : col) {
+            System.out.println(o);
+        }
+
+        System.out.println("---------------------------------");
+
+        //while循环
+        Iterator iterator = col.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922212009245.png" alt="image-20220922212009245"></p>
+<h4 id="Iterator的底层原理"><a href="#Iterator的底层原理" class="headerlink" title="Iterator的底层原理"></a>Iterator的底层原理</h4><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922212313881.png" alt="image-20220922212313881"></p>
+<h2 id="List接口常用的方法"><a href="#List接口常用的方法" class="headerlink" title="List接口常用的方法"></a>List接口常用的方法</h2><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923005015955.png" alt="image-20220923005015955"></p>
+<h3 id="add-E-e-将指定的元素到这个列表的末尾（可选操作）。"><a href="#add-E-e-将指定的元素到这个列表的末尾（可选操作）。" class="headerlink" title="add(E e)  将指定的元素到这个列表的末尾（可选操作）。"></a>add(E e)  将指定的元素到这个列表的末尾（可选操作）。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+
+        List list = new ArrayList();
+        list.add(13);
+        list.add(17);
+        list.add(16);
+        list.add(10);
+        list.add(-6);
+        System.out.println(list);
+
+        list.add(3,66);//向指定索引位置添加元素
+        System.out.println(list);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922213541311.png" alt="image-20220922213541311"></p>
+<h3 id="set-int-index-E-element-用指定元素替换此列表中指定位置的元素（可选操作）。"><a href="#set-int-index-E-element-用指定元素替换此列表中指定位置的元素（可选操作）。" class="headerlink" title="set(int index, E element)  用指定元素替换此列表中指定位置的元素（可选操作）。"></a>set(int index, E element)  用指定元素替换此列表中指定位置的元素（可选操作）。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+
+        List list = new ArrayList();
+        list.add(13);
+        list.add(17);
+        list.add(16);
+        list.add(10);
+        list.add(-6);
+        System.out.println(list);
+
+        list.add(3,66);//向指定索引位置添加元素
+        System.out.println(list);
+
+        //修改指定索引的元素
+        list.set(3,77);
+        System.out.println(list);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922213835256.png" alt="image-20220922213835256"></p>
+<h3 id="remove-int-index-移除此列表中指定位置的元素（可选操作）。"><a href="#remove-int-index-移除此列表中指定位置的元素（可选操作）。" class="headerlink" title="remove(int index)  移除此列表中指定位置的元素（可选操作）。"></a>remove(int index)  移除此列表中指定位置的元素（可选操作）。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+
+        List list = new ArrayList();
+        list.add(13);
+        list.add(17);
+        list.add(16);
+        list.add(10);
+        list.add(-6);
+        System.out.println(list);
+
+        list.add(3,66);
+        System.out.println(list);
+
+        //修改指定索引的元素
+        list.set(3,77);
+        System.out.println(list);
+
+        list.remove(3);//移除索引为3的元素
+        System.out.println(list);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922214202433.png" alt="image-20220922214202433"></p>
+<h3 id="remove-Object-o-从该列表中移除指定元素的第一个发生，如果它是存在的（可选操作）。"><a href="#remove-Object-o-从该列表中移除指定元素的第一个发生，如果它是存在的（可选操作）。" class="headerlink" title="remove(Object o)  从该列表中移除指定元素的第一个发生，如果它是存在的（可选操作）。"></a>remove(Object o)  从该列表中移除指定元素的第一个发生，如果它是存在的（可选操作）。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">package cn.codesheep.test.List;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class Demo01 {
+    public static void main(String[] args) {
+
+        List list = new ArrayList();
+        list.add(13);
+        list.add(17);
+        list.add(16);
+        list.add(10);
+        list.add(-6);
+        System.out.println(list);
+        list.remove(list.get(2));
+        System.out.println(list);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922220014871.png" alt="image-20220922220014871"></p>
+<h3 id="size-返回此列表中元素的数目。"><a href="#size-返回此列表中元素的数目。" class="headerlink" title="size()  返回此列表中元素的数目。"></a>size()  返回此列表中元素的数目。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+
+        List list = new ArrayList();
+        list.add(13);
+        list.add(17);
+        list.add(16);
+        list.add(10);
+        list.add(-6);
+        System.out.println(list);
+        System.out.println("List集合的长度(集合中元素的个数)："+ list.size());
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922214752878.png" alt="image-20220922214752878"></p>
+<h3 id="get-int-index-返回此列表中指定位置的元素"><a href="#get-int-index-返回此列表中指定位置的元素" class="headerlink" title="get(int index)  返回此列表中指定位置的元素"></a>get(int index)  返回此列表中指定位置的元素</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+
+        List list = new ArrayList();
+        list.add(13);
+        list.add(17);
+        list.add(16);
+        list.add(10);
+        list.add(-6);
+        System.out.println(list);
+        Object o = list.get(2);//获取索引为2的元素
+        System.out.println(o);
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922214554293.png" alt="image-20220922214554293"></p>
+<h3 id="isEmpty-返回-true如果此列表不包含元素。"><a href="#isEmpty-返回-true如果此列表不包含元素。" class="headerlink" title="isEmpty() 返回 true如果此列表不包含元素。"></a>isEmpty() 返回 true如果此列表不包含元素。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+
+        List list = new ArrayList();
+        list.add(13);
+        list.add(17);
+        list.add(16);
+        list.add(10);
+        list.add(-6);
+        System.out.println(list);
+        System.out.println("List集合是否为空："+ list.isEmpty());
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922215626828.png" alt="image-20220922215626828"></p>
+<h3 id="List集合的遍历"><a href="#List集合的遍历" class="headerlink" title="List集合的遍历"></a>List集合的遍历</h3><h4 id="方式一：普通for循环遍历"><a href="#方式一：普通for循环遍历" class="headerlink" title="方式一：普通for循环遍历"></a>方式一：普通for循环遍历</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+
+        List list = new ArrayList();
+        list.add(13);
+        list.add(17);
+        list.add(16);
+        list.add(10);
+        list.add(-6);
+        System.out.println(list);
+
+        System.out.println("-------------------");
+
+        for (int i = 0; i &lt; list.size(); i++) {
+            System.out.println(list.get(i));
+
+        }
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922215101195.png" alt="image-20220922215101195"></p>
+<h4 id="方式二：增强for循环遍历"><a href="#方式二：增强for循环遍历" class="headerlink" title="方式二：增强for循环遍历"></a>方式二：增强for循环遍历</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+
+        List list = new ArrayList();
+        list.add(13);
+        list.add(17);
+        list.add(16);
+        list.add(10);
+        list.add(-6);
+        System.out.println(list);
+
+        System.out.println("-----------------------");
+
+        for (Object o : list) {
+            System.out.println(o);
+        }
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922215243183.png" alt="image-20220922215243183"></p>
+<h4 id="方式三：迭代器遍历"><a href="#方式三：迭代器遍历" class="headerlink" title="方式三：迭代器遍历"></a>方式三：迭代器遍历</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+
+        List list = new ArrayList();
+        list.add(13);
+        list.add(17);
+        list.add(16);
+        list.add(10);
+        list.add(-6);
+        System.out.println(list);
+
+        System.out.println("迭代器遍历");
+        Iterator iterator = list.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922215452004.png" alt="image-20220922215452004"></p>
+<h2 id="Set接口常用的方法"><a href="#Set接口常用的方法" class="headerlink" title="Set接口常用的方法"></a>Set接口常用的方法</h2><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923004912989.png" alt="image-20220923004912989"></p>
+<p><strong>==注意：set集合的元素不能重复，若添加时有重复的元素，则，只添加第一个，而且是无序的集合==</strong></p>
+<h4 id="add-E-e-如果没有当前（可选操作），则将指定的元素添加到该集合中。"><a href="#add-E-e-如果没有当前（可选操作），则将指定的元素添加到该集合中。" class="headerlink" title="add(E e)  如果没有当前（可选操作），则将指定的元素添加到该集合中。"></a>add(E e)  如果没有当前（可选操作），则将指定的元素添加到该集合中。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+
+        Set set = new HashSet&lt;&gt;();
+        set.add(15);
+        set.add(14);
+        set.add(13);
+        set.add(15);
+        System.out.println(set);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923001734772.png" alt="image-20220923001734772"></p>
+<h5 id="注意：如果add-方法添加的内容是自定义的类，那么就不满足集合中的元素唯一了，"><a href="#注意：如果add-方法添加的内容是自定义的类，那么就不满足集合中的元素唯一了，" class="headerlink" title="注意：如果add()方法添加的内容是自定义的类，那么就不满足集合中的元素唯一了，"></a><strong>注意：如果add()方法添加的内容是自定义的类，那么就不满足集合中的元素唯一了，</strong></h5><p>例如：</p>
+<p>创建一个Student类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Student {
+    private Integer age;
+    private String name;
+
+    public Student() {
+    }
+
+    public Student(Integer age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试类：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test {
+    public static void main(String[] args) {
+        Set&lt;Student&gt; set = new HashSet&lt;&gt;();
+        set.add(new Student(19,"lili"));
+        set.add(new Student(20,"feifei"));
+        set.add(new Student(18,"lulu"));
+        set.add(new Student(17,"nana"));
+        set.add(new Student(19,"lili"));
+        set.add(new Student(20,"lili"));
+
+        System.out.println("set集合的元素个数为："+set.size());
+
+        System.out.println(set);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924102755625.png" alt="image-20220924102755625"></p>
+<h5 id="问题：上面自定义的类型不满足唯一，无序的特点。为什么呢"><a href="#问题：上面自定义的类型不满足唯一，无序的特点。为什么呢" class="headerlink" title="问题：上面自定义的类型不满足唯一，无序的特点。为什么呢?"></a>问题：上面自定义的类型不满足唯一，无序的特点。为什么呢?</h5><p>答：原因是Student类没有重写equals()方法和hashCode()方法，解决方法是在Student类重写equals()方法和hashCode()方法，添加如下的代码</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Override
+public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Student student = (Student) o;
+    return age.equals(student.age) &amp;&amp; name.equals(student.name);
+}
+
+@Override
+public int hashCode() {
+    return Objects.hash(age, name);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>重写equals()方法和hashCode()方法后的结果</p>
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924104430516.png" alt="image-20220924104430516"></p>
+<h3 id="HashSet原理图（简要原理图）"><a href="#HashSet原理图（简要原理图）" class="headerlink" title="HashSet原理图（简要原理图）"></a>HashSet原理图（简要原理图）</h3><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924104539946.png" alt="image-20220924104539946"></p>
+<h4 id="【5】疑问"><a href="#【5】疑问" class="headerlink" title="【5】疑问:"></a>【5】疑问:</h4><p>1.数组的长度是多少。</p>
+<p>⒉数组的类型是什么?</p>
+<p>3.hashCode，equals方法真的调用了吗?验证4.底层表达式是什么?</p>
+<p>5.同一个位置的数据向前放还是向后放?</p>
+<p>6.放入数组中的数据，是直接放的吗?是否封装为对象了?l</p>
+<h4 id="addAll-Collection-lt-extends-E-gt-c-如果没有当前（可选操作），将指定集合中的所有元素添加到该集合中。"><a href="#addAll-Collection-lt-extends-E-gt-c-如果没有当前（可选操作），将指定集合中的所有元素添加到该集合中。" class="headerlink" title="addAll(Collection<? extends E> c)  如果没有当前（可选操作），将指定集合中的所有元素添加到该集合中。"></a>addAll(Collection&lt;? extends E&gt; c)  如果没有当前（可选操作），将指定集合中的所有元素添加到该集合中。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+
+        Set set2 = new HashSet&lt;&gt;();
+        List&lt;Integer&gt; integers = Arrays.asList(new Integer[]{12, 23, 4, 5, 56});
+        set2.addAll(integers);
+        System.out.println(set2);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923001956530.png" alt="image-20220923001956530"></p>
+<h4 id="clear-从这个集合中移除所有的元素（可选操作）。-1"><a href="#clear-从这个集合中移除所有的元素（可选操作）。-1" class="headerlink" title="clear()  从这个集合中移除所有的元素（可选操作）。"></a>clear()  从这个集合中移除所有的元素（可选操作）。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        Set set2 = new HashSet&lt;&gt;();
+        List&lt;Integer&gt; integers = Arrays.asList(new Integer[]{12, 23, 4, 5, 56});
+        set2.addAll(integers);
+        System.out.println(set2);
+
+        set2.clear();
+        System.out.println("----------------------");
+        System.out.println("set集合的元素是否清空？" + set2);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923002256333.png" alt="image-20220923002256333"></p>
+<h4 id="contains-Object-o-如果这套-true返回包含指定的元素。"><a href="#contains-Object-o-如果这套-true返回包含指定的元素。" class="headerlink" title="contains(Object o)  如果这套 true返回包含指定的元素。"></a>contains(Object o)  如果这套 true返回包含指定的元素。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+
+        Set set2 = new HashSet&lt;&gt;();
+        List&lt;Integer&gt; integers = Arrays.asList(new Integer[]{12, 23, 4, 5, 56});
+        set2.addAll(integers);
+        System.out.println(set2);
+
+        System.out.println("-----------------------");
+        boolean contains = set2.contains(23);
+        System.out.println("元素23是否在Set集合中？"+ contains);
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923002531019.png" alt="image-20220923002531019"></p>
+<h4 id="equals-Object-o-将指定的对象与此设置的相等性进行比较。"><a href="#equals-Object-o-将指定的对象与此设置的相等性进行比较。" class="headerlink" title="equals(Object o)  将指定的对象与此设置的相等性进行比较。"></a>equals(Object o)  将指定的对象与此设置的相等性进行比较。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+
+        Set set = new HashSet&lt;&gt;();
+        set.add(12);
+        set.add(23);
+        set.add(4);
+        set.add(5);
+        set.add(56);
+        System.out.println(set);
+
+        Set set2 = new HashSet&lt;&gt;();
+        List&lt;Integer&gt; integers = Arrays.asList(new Integer[]{12, 23, 4, 5, 56});
+        set2.addAll(integers);
+        System.out.println(set2);
+
+
+        System.out.println("集合set与set2是否相等？"+( set == set2));//set与set2是两个对象，内存地址不同，故不相等
+        System.out.println("集合set与set2中的元素是否相等？"+set.equals(set2));
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id=""><a href="#" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923003105132.png" alt="image-20220923003105132"></h4><h4 id="isEmpty-返回-true如果这个集合不包含元素。"><a href="#isEmpty-返回-true如果这个集合不包含元素。" class="headerlink" title="isEmpty()  返回 true如果这个集合不包含元素。"></a>isEmpty()  返回 true如果这个集合不包含元素。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        
+        Set set2 = new HashSet&lt;&gt;();
+        List&lt;Integer&gt; integers = Arrays.asList(new Integer[]{12, 23, 4, 5, 56});
+        set2.addAll(integers);
+        System.out.println(set2);
+        boolean empty = set2.isEmpty();
+        System.out.println("集合set2是否为空？" + empty);
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923003308361.png" alt="image-20220923003308361"></h4><h4 id="remove-Object-o-如果当前（可选操作），则从该集合中移除指定的元素。"><a href="#remove-Object-o-如果当前（可选操作），则从该集合中移除指定的元素。" class="headerlink" title="remove(Object o)  如果当前（可选操作），则从该集合中移除指定的元素。"></a>remove(Object o)  如果当前（可选操作），则从该集合中移除指定的元素。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+
+        Set set2 = new HashSet&lt;&gt;();
+        List&lt;Integer&gt; integers = Arrays.asList(new Integer[]{12, 23, 4, 5, 56});
+        set2.addAll(integers);
+        System.out.println(set2);
+
+        boolean remove = set2.remove(23); //移除指定元素，与List不同
+        System.out.println("集合set2中的元素23是否从集合中移除了？"+ remove);
+        System.out.println(set2);
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923004203574.png" alt="image-20220923004203574"></p>
+<h4 id="size-返回该集合中元素个数（其基数）。"><a href="#size-返回该集合中元素个数（其基数）。" class="headerlink" title="size()  返回该集合中元素个数（其基数）。"></a>size()  返回该集合中元素个数（其基数）。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+
+        Set set2 = new HashSet&lt;&gt;();
+        List&lt;Integer&gt; integers = Arrays.asList(new Integer[]{12, 23, 4, 5, 56});
+        set2.addAll(integers);
+        System.out.println(set2);
+        System.out.println("集合set2的元素个数（即长度）为？" + set2.size());
+
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923003516782.png" alt="image-20220923003516782"></h4><h3 id="Set集合的遍历"><a href="#Set集合的遍历" class="headerlink" title="Set集合的遍历"></a>Set集合的遍历</h3><h4 id="方式一：增强for循环遍历"><a href="#方式一：增强for循环遍历" class="headerlink" title="方式一：增强for循环遍历"></a>方式一：增强for循环遍历</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+
+        Set set2 = new HashSet&lt;&gt;();
+        List&lt;Integer&gt; integers = Arrays.asList(new Integer[]{12, 23, 4, 5, 56});
+        set2.addAll(integers);
+        System.out.println(set2);
+
+
+        System.out.println("增强for循环遍历");
+        for (Object o : set2) {
+            System.out.println(o);
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="方式二：迭代器遍历"><a href="#方式二：迭代器遍历" class="headerlink" title="方式二：迭代器遍历"></a>方式二：迭代器遍历</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+
+        Set set2 = new HashSet&lt;&gt;();
+        List&lt;Integer&gt; integers = Arrays.asList(new Integer[]{12, 23, 4, 5, 56});
+        set2.addAll(integers);
+        System.out.println(set2);
+
+        System.out.println("迭代器遍历");
+        Iterator iterator = set2.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="LinkedHashSet实现类"><a href="#LinkedHashSet实现类" class="headerlink" title="LinkedHashSet实现类"></a>LinkedHashSet实现类</h2><p>==<strong>特点：唯一，有序，（按照输入顺序进行输出）</strong>==</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class LinkedHashSet&lt;E&gt;
+    extends HashSet&lt;E&gt;
+    implements Set&lt;E&gt;, Cloneable, java.io.Serializable {}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        LinkedHashSet&lt;Integer&gt; linkedHashSet = new LinkedHashSet&lt;&gt;();
+        linkedHashSet.add(123);
+        linkedHashSet.add(456);
+        linkedHashSet.add(654);
+        linkedHashSet.add(321);
+        linkedHashSet.add(123);
+        linkedHashSet.add(213);
+
+        System.out.println(linkedHashSet);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924124256856.png" alt="image-20220924124256856"></p>
+<p>其实LinkedHashSet就是在HashSet的基础上，多了一个总的链表，这个总链表将放入的元素串在一起，方便有序的遍历</p>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h3 id="什么是泛型（Generic）？"><a href="#什么是泛型（Generic）？" class="headerlink" title="什么是泛型（Generic）？"></a>什么是泛型（Generic）？</h3><p><strong>泛型就相当于标签形式: &lt;&gt;</strong></p>
+<p>集合容器类在设计阶段/声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把元素类型设计为Object,<br>JDK1.5之后使用泛型来解决。因为这个时候除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的,因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。</p>
+<p>Collection<e>, List<e>, ArrayList<e>这个<e>就是类型参数，即泛型。</e></e></e></e></p>
+<p><strong>==注意：实例化的时候不指定泛型:如果实例化的时候不明确的指定类的泛型，那么认为此泛型为object类型==</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">//泛型类
+public class GenericTest&lt;T&gt; {
+    int age;
+    String name;
+    T sex;
+
+    public void a(T n) {
+
+    }
+
+    public void b(T[] n) {
+
+    }
+}
+class Test{
+    public static void main(String[] args) {
+        //GenericTest进行实例化
+
+        //(1)实例化的时候不指定泛型:如果实例化的时候不明确的指定类的泛型，那么认为此泛型为object类型
+        GenericTest genericTest = new GenericTest&lt;&gt;();
+        genericTest.a("abc");
+        genericTest.a(17);
+        genericTest.a(1.7);
+        genericTest.b(new String[]{"a","b","c"});
+
+
+        //(2)实例化的时候指定泛型 推荐使用
+        GenericTest&lt;String&gt; test = new GenericTest&lt;&gt;();
+        test.sex = "男";
+        test.a("abc");
+        test.b(new String[]{"a","b","c"});
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="泛型的继承情况"><a href="#泛型的继承情况" class="headerlink" title="泛型的继承情况"></a>泛型的继承情况</h3><h4 id="父类指定泛型的类型：指定父类泛型，那么子类就不需要再指定泛型了，可以直接使用"><a href="#父类指定泛型的类型：指定父类泛型，那么子类就不需要再指定泛型了，可以直接使用" class="headerlink" title="父类指定泛型的类型：指定父类泛型，那么子类就不需要再指定泛型了，可以直接使用"></a>父类指定泛型的类型：指定父类泛型，那么子类就不需要再指定泛型了，可以直接使用</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class SubGenericTest extends GenericTest&lt;Integer&gt;{
+    public static void main(String[] args) {
+
+        //指定父类泛型，那么子类就不需要再指定泛型了，可以直接使用
+        SubGenericTest test = new SubGenericTest();
+        test.a(19);
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="父类不指定泛型的类型：如果父类不指定泛型，那么子类也会变成一个泛型类，那这个E的类型可以在创建子类对象的时候确定-此时子类必须写符号"><a href="#父类不指定泛型的类型：如果父类不指定泛型，那么子类也会变成一个泛型类，那这个E的类型可以在创建子类对象的时候确定-此时子类必须写符号" class="headerlink" title="父类不指定泛型的类型：如果父类不指定泛型，那么子类也会变成一个泛型类，那这个E的类型可以在创建子类对象的时候确定:此时子类必须写符号"></a>父类不指定泛型的类型：如果父类不指定泛型，那么子类也会变成一个泛型类，那这个E的类型可以在创建子类对象的时候确定:此时子类必须写<e>符号</e></h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">//如果父类不指定泛型，那么子类也会变成一个泛型类，那这个E的类型可以在创建子类对象的时候确定:此时子类必须写&lt;E&gt;符号
+public class SubGenericTest2&lt;E&gt; extends GenericTest&lt;E&gt;{
+    public static void main(String[] args) {
+        SubGenericTest2&lt;String&gt; test2 = new SubGenericTest2&lt;&gt;();
+        test2.a("abc");
+        test2.sex = "女";
+        test2.b(new String[]{"a","b","c"});
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="应用场合"><a href="#应用场合" class="headerlink" title="应用场合"></a>应用场合</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt;
+        implements List&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable
+{}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><h4 id="（1）泛型类可以定义多个参数类型"><a href="#（1）泛型类可以定义多个参数类型" class="headerlink" title="（1）泛型类可以定义多个参数类型"></a>（1）泛型类可以定义多个参数类型</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class MoreParamsGeneric &lt;A,B,C&gt;{
+    A age;
+    B name;
+    C sex;
+
+    public void a(A m,B n,C x) {
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="（2）泛型类构造器的写法：构造器不能写泛型"><a href="#（2）泛型类构造器的写法：构造器不能写泛型" class="headerlink" title="（2）泛型类构造器的写法：构造器不能写泛型"></a>（2）泛型类构造器的写法：构造器不能写泛型</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class MoreParamsGeneric &lt;A,B,C&gt;{
+    A age;
+    B name;
+    C sex;
+
+    public void a(A m,B n,C x) {
+
+    }
+    public MoreParamsGeneric(){
+        
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922232920022.png" alt="image-20220922232920022"></p>
+<h4 id="（3）-不同的泛型的引用类型不可以相互赋值"><a href="#（3）-不同的泛型的引用类型不可以相互赋值" class="headerlink" title="（3） 不同的泛型的引用类型不可以相互赋值:"></a>（3） 不同的泛型的引用类型不可以相互赋值:</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class MoreParamsGeneric &lt;A,B,C&gt;{
+    A age;
+    B name;
+    C sex;
+
+    public void a(A m,B n,C x) {
+
+    }
+    public MoreParamsGeneric(){
+
+    }
+
+    public void b(){
+        ArrayList&lt;String&gt; list1 = null;
+        ArrayList&lt;Integer&gt; list2 = null;
+        list1 = list2;
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922233221699.png" alt="image-20220922233221699"></p>
+<h4 id="（4）泛型如果不指定，那么就会被擦除，反应对应的类型为Object类型"><a href="#（4）泛型如果不指定，那么就会被擦除，反应对应的类型为Object类型" class="headerlink" title="（4）泛型如果不指定，那么就会被擦除，反应对应的类型为Object类型:"></a>（4）泛型如果不指定，那么就会被擦除，反应对应的类型为Object类型:</h4><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922233430624.png" alt="image-20220922233430624"></p>
+<h4 id="（5）类中的静态方法不能使用类的泛型"><a href="#（5）类中的静态方法不能使用类的泛型" class="headerlink" title="（5）类中的静态方法不能使用类的泛型"></a>（5）类中的静态方法不能使用类的泛型</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class MoreParamsGeneric &lt;A,B,C&gt;{
+    A age;
+    B name;
+    C sex;
+
+    public void a(A m,B n,C x) {
+
+    }
+    public MoreParamsGeneric(){
+
+    }
+    
+    public static  int c(A a){
+        return 10;
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922233733709.png" alt="image-20220922233733709"></p>
+<h4 id="（6）不能直接使用E-来创建数组的泛型"><a href="#（6）不能直接使用E-来创建数组的泛型" class="headerlink" title="（6）不能直接使用E[]来创建数组的泛型"></a>（6）不能直接使用E[]来创建数组的泛型</h4><p>错误的写法：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public  void c(A m,B n,C x){
+      A[]a =new A[10];
+   }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>正确的写法，且只能这样写</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public  void c(A m,B n,C x){
+       A[] a =(A[])new Object[10];
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="什么是泛型方法？"><a href="#什么是泛型方法？" class="headerlink" title="什么是泛型方法？"></a>什么是泛型方法？</h3><p><strong>不是带泛型的方法就是泛型方法</strong></p>
+<p><strong>泛型方法有要求：这个方法的泛型的参数类型要和当前的类的泛型无关换个角度:</strong></p>
+<p><strong>泛型方法对应的那个泛型参数类型和当前所在的这个类是否是泛型类，与泛型是啥无关</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class GenericFunction &lt;E&gt;{
+    
+    //不是泛型方法
+    public void a(E e){
+        
+    }
+    
+    //泛型方法
+    public &lt;T&gt; void b(T t){
+        
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>泛型方法定义的时候，要在方法名前加上<t></t></strong></p>
+<p>原因：如果不加的话，会把T当做一种数据类型，然而代码中没有T类型那么就会报错</p>
+<p>T的类型是在调用方法的时候确定的</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class GenericFunction &lt;E&gt;{
+
+    //不是泛型方法
+    public void a(E e){
+
+    }
+
+    //泛型方法
+    public &lt;T&gt; void b(T t){
+
+    }
+
+}
+class Demo{
+    public static void main(String[] args) {
+        GenericFunction&lt;String&gt; genericFunction = new GenericFunction&lt;&gt;();
+        genericFunction.a("zbc");
+        genericFunction.b(123);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922235652711.png" alt="image-20220922235652711"></p>
+<p><strong>==注意：泛型方法可以是静态方法==</strong></p>
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220922235822310.png" alt="image-20220922235822310"></p>
+<h3 id="总结-若A和B是子类与父类的关系，但是G和G不存在继承关系的。"><a href="#总结-若A和B是子类与父类的关系，但是G和G不存在继承关系的。" class="headerlink" title="总结: 若A和B是子类与父类的关系，但是G和G不存在继承关系的。"></a>总结: 若A和B是子类与父类的关系，但是G<a>和G<b>不存在继承关系的。</b></a></h3><p><a><b>例如</b></a></p><a><b>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class GenericTest1 {
+
+    public static void main(String[] args) {
+
+
+        //多态：父类引用指向子类对象
+        Object o = new Object();
+        String s = new String();
+        o = s;
+
+        //多态：父类引用指向子类对象
+        Object[] objects = new Object[10];
+        String[] str = new String[10];
+        objects = str;
+
+        List&lt;Object&gt; list1 = new ArrayList&lt;&gt;();
+        List&lt;String&gt; list2 = new ArrayList&lt;&gt;();
+        list1 = list2;
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923122346669.png" alt="image-20220923122346669"></p>
+</b></a><b><h3 id="泛型的通配符（-）"><a></a><a href="#泛型的通配符（-）" class="headerlink" title="泛型的通配符（?）"></a>泛型的通配符（?）</h3><h4 id="在没有通配符的时候："><a href="#在没有通配符的时候：" class="headerlink" title="在没有通配符的时候："></a>在没有通配符的时候：</h4><p>下面的a方法，相当于方法的重复定义，会报错</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo1 {
+    public void a(List&lt;Object&gt; list){}
+    public void a(List&lt;String&gt; list){}
+    public void a(List&lt;Integer&gt; list){}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923123237752.png" alt="image-20220923123237752"></p>
+<h4 id="引入通配符（-）"><a href="#引入通配符（-）" class="headerlink" title="引入通配符（?）"></a>引入通配符（?）</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo1 {
+ 
+    public static void main(String[] args) {
+        ArrayList&lt;Object&gt; obj = new ArrayList&lt;&gt;();
+        ArrayList&lt;String&gt; str = new ArrayList&lt;&gt;();
+        ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;&gt;();
+        
+        List&lt;?&gt; list = null;
+        list = obj;
+        list = str;
+        list = arrayList;
+        
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>发现：A和B是子类与父类的关系，G<a>和G<b>不存在子类与父类关系，是并列的，加入通配符?后，G&lt;?&gt;就变成了G</b></a><b><a>和G<b>的父类</b></a></b></strong></p><b><a><b>
+</b></a><b><h4 id="使用通配符"><a></a><a href="#使用通配符" class="headerlink" title="使用通配符"></a>使用通配符</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo1 {
+    public void a(List&lt;?&gt; list){
+        //内部遍历的时候使用Object即可，不要用？
+        for (Object o : list) {
+            System.out.println(o);
+        }
+    }
+
+    public static void main(String[] args) {
+        Demo1 demo1 = new Demo1();
+        demo1.a(new ArrayList&lt;Integer&gt;());
+        demo1.a(new ArrayList&lt;String&gt;());
+        demo1.a(new ArrayList&lt;Object&gt;());
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>注意：</strong></p>
+<ul>
+<li><strong>写输入数据时不能随意添加数据，<code>list.add(null)</code>,add中的数据不能随意添加</strong></li>
+<li><strong>数据读取使用Object类型来接收，<code>Object obj = list.get(0);</code></strong></li>
+</ul>
+<h3 id="泛型的受限"><a href="#泛型的受限" class="headerlink" title="泛型的受限"></a>泛型的受限</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Person {
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Student extends Person{
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test1 {
+    public static void main(String[] args) {
+
+        //这三个集合时并列的关系，不存在继承的关系
+        List&lt;Object&gt; a = new ArrayList&lt;&gt;();
+        List&lt;Person&gt; b = new ArrayList&lt;&gt;();
+        List&lt;Student&gt; c = new ArrayList&lt;&gt;();
+
+        /*使用泛型受限:
+               泛型上限：
+                    List&lt;? extends Person&gt;相当于，List&lt;? extends Person&gt;是 List&lt;Person&gt;的父类，是 List&lt;Person的子类（Student）&gt;的父类
+
+
+               泛型下限：
+                     List&lt;? super Person&gt;相当于，List&lt;? super Person&gt;是 List&lt;Person&gt;的父类，是 List&lt;Person父类（Object）&gt;的父类
+		 */
+        /*List&lt;? extends Person&gt; list = null;
+        list = a;
+        list = b;
+        list = c;*/
+
+        List&lt;? super Person&gt; list = null;
+        list = a;
+        list = b;
+        list = c;
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="LinkedList常用的方法"><a href="#LinkedList常用的方法" class="headerlink" title="LinkedList常用的方法"></a>LinkedList常用的方法</h2><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923131312341.png" alt="image-20220923131312341"></p>
+<table>
+<thead>
+<tr>
+<th>返回值</th>
+<th>Method and Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>boolean</code></td>
+<td><code>add(E e)</code>  将指定的元素列表的结束。</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>add(int index, E element)</code>  在列表中指定的位置上插入指定的元素。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>addAll(Collection&lt;? extends E&gt; c)</code>  追加指定集合的所有元素到这个列表的末尾，按他们的指定集合的迭代器返回。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>addAll(int index,  Collection&lt;? extends E&gt; c)</code>  将指定集合中的所有元素插入到该列表中，从指定位置开始。</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>addFirst(E e)</code>  在此列表的开始处插入指定的元素。</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>clear()</code>  从这个列表中移除所有的元素。</td>
+</tr>
+<tr>
+<td><code>Object</code></td>
+<td><code>clone()</code>  返回该 <code>LinkedList</code>浅拷贝。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>contains(Object o)</code>  返回 <code>true</code>如果这个列表包含指定元素。</td>
+</tr>
+<tr>
+<td><code>Iterator&lt;E&gt;</code></td>
+<td><code>descendingIterator()</code>  返回在反向顺序在deque容器元素的迭代器。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>element()</code>  检索，但不删除，此列表的头（第一个元素）。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>get(int index)</code>  返回此列表中指定位置的元素。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>getFirst()</code>  返回此列表中的第一个元素。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>getLast()</code>  返回此列表中的最后一个元素。</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>indexOf(Object o)</code>  返回此列表中指定元素的第一个出现的索引，或-如果此列表不包含元素，或- 1。</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>lastIndexOf(Object o)</code>  返回此列表中指定元素的最后一个发生的索引，或-如果此列表不包含元素，或- 1。</td>
+</tr>
+<tr>
+<td><code>ListIterator&lt;E&gt;</code></td>
+<td><code>listIterator(int index)</code>  返回此列表中元素的列表迭代器（在适当的顺序），从列表中的指定位置开始。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>offer(E e)</code>  将指定的元素添加到列表的尾部（最后一个元素）。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>offerFirst(E e)</code>  在列表的前面插入指定的元素。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>offerLast(E e)</code>  在列表的结尾插入指定的元素。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>peek()</code>  检索，但不删除，此列表的头（第一个元素）。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>peekFirst()</code>  检索，但不删除该列表的第一个元素，或返回 <code>null</code>如果这个列表是空的。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>peekLast()</code>  检索，但不删除该列表的最后一个元素，或返回  <code>null</code>如果这个列表是空的。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>poll()</code>  检索并删除此列表的头（第一个元素）。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>pollFirst()</code>  检索并移除此列表的第一个元素，或返回 <code>null</code>如果这个列表是空的。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>pollLast()</code>  检索并移除此列表的最后一个元素，或返回 <code>null</code>如果这个列表是空的。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>pop()</code>  从这个列表所表示的堆栈中弹出一个元素。</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>push(E e)</code>  将一个元素推到由该列表所表示的堆栈上。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>remove()</code>  检索并删除此列表的头（第一个元素）。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>remove(int index)</code>  移除此列表中指定位置的元素。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>remove(Object o)</code>  从该列表中移除指定元素的第一个发生，如果它是存在的。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>removeFirst()</code>  移除并返回此列表中的第一个元素。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>removeFirstOccurrence(Object o)</code>  删除此列表中指定元素的第一个出现（当遍历从头到尾的列表）。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>removeLast()</code>  移除并返回此列表中的最后一个元素。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>removeLastOccurrence(Object o)</code>  删除此列表中指定元素的最后一次（当遍历从头到尾的列表时）。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>set(int index, E element)</code>  用指定元素替换此列表中指定位置的元素。</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>size()</code>  返回此列表中元素的数目。</td>
+</tr>
+<tr>
+<td><code>Spliterator&lt;E&gt;</code></td>
+<td><code>spliterator()</code>  创建一个后期绑定和快速失败 <a href="../../java/util/Spliterator.html"><code>Spliterator</code></a>超过此列表中的元素。</td>
+</tr>
+<tr>
+<td><code>Object[]</code></td>
+<td><code>toArray()</code>  返回一个数组，包含在这个列表中的所有元素在适当的顺序（从第一个到最后一个元素）。</td>
+</tr>
+<tr>
+<td><code>&lt;T&gt; T[]</code></td>
+<td><code>toArray(T[] a)</code>  返回一个数组，包含在这个列表中的所有元素在适当的顺序（从第一到最后一个元素）；返回数组的运行时类型是指定的数组的运行时类型。</td>
+</tr>
+</tbody></table>
+<p><strong>大部分的方法与Collection、List、Se的方法类似，这里只写出与其他三种方法不同的方法</strong></p>
+<h3 id="add-int-index-E-element-在列表中指定的位置上插入指定的元素。"><a href="#add-int-index-E-element-在列表中指定的位置上插入指定的元素。" class="headerlink" title="add(int index, E element)  在列表中指定的位置上插入指定的元素。"></a><code>add(int index, E element)</code>  在列表中指定的位置上插入指定的元素。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();
+        linkedList.add("abc");
+        linkedList.add("bcd");
+        linkedList.add("cde");
+        linkedList.add("def");
+        linkedList.add("efg");
+        System.out.println(linkedList);
+
+        linkedList.add(2,"6666");
+        System.out.println("--------------------");
+        System.out.println(linkedList);
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923201832084.png" alt="image-20220923201832084"></p>
+<h3 id="addFirst-E-e-在此列表的开始处插入指定的元素。"><a href="#addFirst-E-e-在此列表的开始处插入指定的元素。" class="headerlink" title="addFirst(E e)  在此列表的开始处插入指定的元素。"></a><code>addFirst(E e)</code>  在此列表的开始处插入指定的元素。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();
+        linkedList.add("abc");
+        linkedList.add("bcd");
+        linkedList.add("cde");
+        linkedList.add("def");
+        linkedList.add("efg");
+        System.out.println(linkedList);
+
+        linkedList.add(2,"6666");
+        System.out.println("--------------------");
+        System.out.println(linkedList);
+
+
+        linkedList.addFirst("123");
+        System.out.println("--------------------");
+        System.out.println(linkedList);
+
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923204118995.png" alt="image-20220923204118995"></p>
+<h3 id="addLast-E-e-将指定的元素列表的末尾。"><a href="#addLast-E-e-将指定的元素列表的末尾。" class="headerlink" title="addLast(E e)  将指定的元素列表的末尾。"></a><code>addLast(E e)</code>  将指定的元素列表的末尾。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();
+        linkedList.add("abc");
+        linkedList.add("bcd");
+        linkedList.add("cde");
+        linkedList.add("def");
+        linkedList.add("efg");
+        System.out.println(linkedList);
+
+        linkedList.addLast("456");
+        System.out.println("--------------------");
+        System.out.println(linkedList);
+
+        System.out.println(linkedList.getFirst());
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923204250882.png" alt="image-20220923204250882"></p>
+<h3 id="getFirst-返回此列表中的第一个元素。"><a href="#getFirst-返回此列表中的第一个元素。" class="headerlink" title="getFirst()  返回此列表中的第一个元素。"></a><code>getFirst()</code>  返回此列表中的第一个元素。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">package cn.codesheep.test.LinkedList;
+
+import java.util.LinkedList;
+
+public class Demo {
+    public static void main(String[] args) {
+        LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();
+        linkedList.add("abc");
+        linkedList.add("bcd");
+        linkedList.add("cde");
+        linkedList.add("def");
+        linkedList.add("efg");
+        System.out.println(linkedList);
+
+
+        linkedList.addLast("456");
+        System.out.println("--------------------");
+        System.out.println(linkedList);
+
+        System.out.println(linkedList.getFirst());
+
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923204428167.png" alt="image-20220923204428167"></p>
+<h3 id="getLast-返回此列表中的最后一个元素。"><a href="#getLast-返回此列表中的最后一个元素。" class="headerlink" title="getLast()  返回此列表中的最后一个元素。"></a><code>getLast()</code>  返回此列表中的最后一个元素。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();
+        linkedList.add("abc");
+        linkedList.add("bcd");
+        linkedList.add("cde");
+        linkedList.add("def");
+        linkedList.add("efg");
+        System.out.println(linkedList);
+
+
+        System.out.println(linkedList.getLast());
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923204628607.png" alt="image-20220923204628607"></p>
+<h3 id="element-检索，但不删除，此列表的头（第一个元素）。即获取列表的第一个元素，与getFirst（）的作用一致"><a href="#element-检索，但不删除，此列表的头（第一个元素）。即获取列表的第一个元素，与getFirst（）的作用一致" class="headerlink" title="element()  检索，但不删除，此列表的头（第一个元素）。即获取列表的第一个元素，与getFirst（）的作用一致"></a><code>element()</code>  检索，但不删除，此列表的头（第一个元素）。即获取列表的第一个元素，与getFirst（）的作用一致</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">package cn.codesheep.test.LinkedList;
+
+import java.util.LinkedList;
+
+public class Demo {
+    public static void main(String[] args) {
+        LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();
+        linkedList.add("abc");
+        linkedList.add("bcd");
+        linkedList.add("cde");
+        linkedList.add("def");
+        linkedList.add("efg");
+        System.out.println(linkedList);
+
+        String element = linkedList.element();
+        System.out.println(element);
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923205033230.png" alt="image-20220923205033230"></p>
+<p><code>offer(E e)</code>  将指定的元素添加到列表的尾部（最后一个元素）。 </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();
+        linkedList.add("abc");
+        linkedList.add("bcd");
+        linkedList.add("cde");
+        linkedList.add("def");
+        linkedList.add("efg");
+        System.out.println(linkedList);
+
+
+        linkedList.offer("王炸");
+        System.out.println(linkedList);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923205228996.png" alt="image-20220923205228996"></p>
+<p><code>offerFirst(E e)</code>  在列表的前面插入指定的元素。 </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();
+        linkedList.add("abc");
+        linkedList.add("bcd");
+        linkedList.add("cde");
+        linkedList.add("def");
+        linkedList.add("efg");
+        System.out.println(linkedList);
+
+        linkedList.offerFirst("张三");
+        System.out.println(linkedList);
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923205417004.png" alt="image-20220923205417004"></p>
+<p><code>offerLast(E e)</code>  在列表的结尾插入指定的元素。 </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">package cn.codesheep.test.LinkedList;
+
+import java.util.LinkedList;
+
+public class Demo {
+    public static void main(String[] args) {
+        LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();
+        linkedList.add("abc");
+        linkedList.add("bcd");
+        linkedList.add("cde");
+        linkedList.add("def");
+        linkedList.add("efg");
+        System.out.println(linkedList);
+        
+        linkedList.offerLast("最后的元素");
+        System.out.println(linkedList);
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923205712780.png" alt="image-20220923205712780"></p>
+<p><strong>ArrayList的数据结构</strong></p>
+<p><strong>物理结构：紧密结构</strong></p>
+<p><strong>逻辑结构：线性表（数组）</strong></p>
+<p><strong>LinkedList的数据结构</strong></p>
+<p><strong>物理结构：跳转结构</strong></p>
+<p><strong>逻辑结构：线性表（链表）</strong></p>
+<p>==<strong>LinkedList的底层数据结构是双向链表</strong>==</p>
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923231911799.png" alt="image-20220923231911799"></p>
+<h3 id="模拟LinkedList源码"><a href="#模拟LinkedList源码" class="headerlink" title="模拟LinkedList源码"></a>模拟LinkedList源码</h3><h4 id="创建一个Node类"><a href="#创建一个Node类" class="headerlink" title="创建一个Node类"></a>创建一个Node类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Node {  //节点类
+    //三个属性：上一个元素地址，当前元素地址，下一个元素地址
+
+    //上一个元素地址
+    private Node pre;
+
+    //当前元素地址
+    private Object obj;
+
+    //下一个元素地址
+    private Node next;
+
+    public Node() {
+    }
+
+    public Node(Node pre, Object obj, Node next) {
+        this.pre = pre;
+        this.obj = obj;
+        this.next = next;
+    }
+
+    public Node getPre() {
+        return pre;
+    }
+
+    public void setPre(Node pre) {
+        this.pre = pre;
+    }
+
+    public Object getObj() {
+        return obj;
+    }
+
+    public void setObj(Object obj) {
+        this.obj = obj;
+    }
+
+    public Node getNext() {
+        return next;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "pre=" + pre +
+                ", obj=" + obj +
+                ", next=" + next +
+                '}';
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="创建一个MyLinkedList类"><a href="#创建一个MyLinkedList类" class="headerlink" title="创建一个MyLinkedList类"></a>创建一个MyLinkedList类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">//链中一定有一个首节点和一个未节点
+public class MyLinkedList {
+
+    //首节点
+    Node first;
+
+    //未节点
+    Node last;
+
+    //计数器
+    int count = 0;
+
+
+    //提供一个无参构造器
+    public MyLinkedList() {
+    }
+
+    //添加元素的方法
+    public void add(Object o){
+        if (first == null){//证明你添加的元素是第一个节点:
+            //将添加的元素封装为一个Node对象
+            Node n = new Node();
+            n.setPre(null);
+            n.setObj(o);
+            n.setNext(null);
+
+            //当前链中第一个节点变为n
+            first = n;
+
+            //当前链中最后一个节点变为n
+            last = n;
+        }else {
+            //证明已经不是链中第一个节点了
+            Node node = new Node();
+            node.setPre(last); //node的上一个节点一定是当前链中的最后一个节点last
+
+            node.setObj(o);
+            node.setNext(null);
+
+            //当前链中的最后一个节点的下一个元素要指向node
+            last.setNext(node);
+
+            //将最后一个节点变为node
+            last = node;
+
+        }
+
+        //链表中元素数量加1
+        count++;
+
+    }
+
+    //获取集合中元素的数量
+    public int getSize(){
+        return count;
+    }
+
+    //通过下标获取到链表的元素
+    public Object get(int index){
+        //获取链表的头节点元素
+        Node n = first;
+        for (int i = 0; i &lt; index; i++) {
+            //一路next得到想要的元素
+            n = n.getNext();
+        }
+        return n.getObj();
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test {
+    public static void main(String[] args) {
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.add("aaa");
+        linkedList.add("bbb");
+        linkedList.add("ccc");
+
+        System.out.println(linkedList.getSize());
+
+        System.out.println(linkedList.get(2));
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220923235652141.png" alt="image-20220923235652141"></p>
+<h2 id="iterator-，Iterator，Iterable的关系"><a href="#iterator-，Iterator，Iterable的关系" class="headerlink" title="iterator()，Iterator，Iterable的关系"></a>iterator()，Iterator，Iterable的关系</h2><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924001503112.png" alt="image-20220924001503112"></p>
+<h3 id="迭代器中的hasNext-，Next-的具体实现"><a href="#迭代器中的hasNext-，Next-的具体实现" class="headerlink" title="迭代器中的hasNext()，Next()的具体实现"></a>迭代器中的hasNext()，Next()的具体实现</h3><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924002407926.png" alt="image-20220924002407926"></p>
+<h3 id="ListIterator"><a href="#ListIterator" class="headerlink" title="ListIterator"></a>ListIterator</h3><p>在集合中某个元素后添加元素</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class TestListIterator {
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add("aa");
+        list.add("bb");
+        list.add("cc");
+        list.add("dd");
+
+        //使用iterator遍历集合并在元素cc后添加kk元素
+        Iterator&lt;String&gt; iterator = list.iterator();
+        while (iterator.hasNext()){
+            if ("cc".equals(iterator.next())){
+                list.add("kk");
+            }
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用iterator()方法来实现，会报如下的错误，不可行，此时需要用</p>
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924003651691.png" alt="image-20220924003651691"></p>
+<p>使用listIterator()方法来实现，</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">package cn.codesheep.test.LinkedList;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+
+public class TestListIterator {
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add("aa");
+        list.add("bb");
+        list.add("cc");
+        list.add("dd");
+        System.out.println(list);
+        
+        ListIterator&lt;String&gt; it = list.listIterator();
+        while (it.hasNext()){
+            if ("cc".equals(it.next())){
+                it.add("kk");
+            }
+        }
+        System.out.println("---------------------");
+        System.out.println(list);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924004637272.png" alt="image-20220924004637272"></p>
+<p>listIterator()的逆向遍历</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class TestListIterator {
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add("aa");
+        list.add("bb");
+        list.add("cc");
+        list.add("dd");
+        System.out.println(list);
+
+        ListIterator&lt;String&gt; it = list.listIterator();
+        while (it.hasNext()){
+            if ("cc".equals(it.next())){
+                it.add("kk");
+            }
+        }
+        System.out.println("---------------------");
+        System.out.println(list);
+
+
+        //listIterator()的逆向遍历
+        System.out.println(it.hasPrevious());//是否有上一个元素
+        while (it.hasPrevious()){
+            System.out.println(it.previous());
+        }
+
+        System.out.println(it.hasPrevious());//是否有上一个元素
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924005647321.png" alt="image-20220924005647321"></p>
+<h2 id="比较器"><a href="#比较器" class="headerlink" title="比较器"></a>比较器</h2><h3 id="比较int类型"><a href="#比较int类型" class="headerlink" title="比较int类型"></a>比较int类型</h3><p><strong>比较的思路：</strong>将比较的数据做差，然后返回一个int类型的数据，将这个int类型的数值与0进行比较，结果的可能性有，&gt; 0，&lt; 0，= 0</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 20;
+        int c = a - b;
+        System.out.println(c);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="比较String类型"><a href="#比较String类型" class="headerlink" title="比较String类型"></a>比较String类型</h3><p>String类实现了Comparable接口，这个接口中有一个抽象方法compareTo，String类中重写这个方法即可</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public interface Comparable&lt;T&gt; {
+    public int compareTo(T o);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public final class String
+    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
+     public int compareTo(String anotherString) {
+        int len1 = value.length;
+        int len2 = anotherString.value.length;
+        int lim = Math.min(len1, len2);
+        char v1[] = value;
+        char v2[] = anotherString.value;
+
+        int k = 0;
+        while (k &lt; lim) {
+            char c1 = v1[k];
+            char c2 = v2[k];
+            if (c1 != c2) {
+                return c1 - c2;
+            }
+            k++;
+        }
+        return len1 - len2;
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        String a = "A";
+        String b = "B";
+        System.out.println(a.compareTo(b));
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="比较Double类型"><a href="#比较Double类型" class="headerlink" title="比较Double类型"></a>比较Double类型</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        double a = 9.3;
+        double b = 9.6;
+        //System.out.println((int)(a-b));//由于double的精度问题，此方法不可行，只能转换成对应的包装类，通过compareTo()方法进行比较
+        System.out.println(((Double) a).compareTo((Double) b));
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="比较自定义的数据类型"><a href="#比较自定义的数据类型" class="headerlink" title="比较自定义的数据类型"></a>比较自定义的数据类型</h3><h4 id="内部比较器"><a href="#内部比较器" class="headerlink" title="内部比较器"></a>内部比较器</h4><p>创建一个Student类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Student implements Comparable&lt;Student&gt;{
+    private Integer age;
+    private String name;
+    private Double height;
+
+    public Student() {
+    }
+
+    public Student(Integer age, String name, Double height) {
+        this.age = age;
+        this.name = name;
+        this.height = height;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getHeight() {
+        return height;
+    }
+
+    public void setHeight(Double height) {
+        this.height = height;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                ", height=" + height +
+                '}';
+    }
+
+    @Override//比较器
+    public int compareTo(Student o) {
+
+        //比较学生的年龄
+        //return this.getAge() - o.getAge();
+
+        //比较学生的身高
+        //return ((Double)(this.getHeight())).compareTo((Double)(o.getHeight()));
+
+        //比较学生的名字
+        return this.getName().compareTo(o.getName());
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test {
+    public static void main(String[] args) {
+
+        //比较学生信息
+        Student s1 = new Student(10, "lili", 160.5);
+        Student s2 = new Student(15, "nana", 170.5);
+        System.out.println(s1.compareTo(s2));
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="外部比较器（推荐使用），可以使用多态，拓展性好"><a href="#外部比较器（推荐使用），可以使用多态，拓展性好" class="headerlink" title="外部比较器（推荐使用），可以使用多态，拓展性好"></a>外部比较器（推荐使用），可以使用多态，拓展性好</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class ExternalCompare implements Comparator&lt;Student&gt; {
+    @Override
+    public int compare(Student o1, Student o2) {
+
+        //比较两个学生的年龄
+       // return o1.getAge() - o2.getAge();
+
+        //比较两个学生的名字
+        return o1.compareTo(o2);
+        
+        //在年龄相同的情况下比较身高，否则就比较年龄
+        if (o1.getAge() == o2.getAge()){
+            return ((Double)o1.getHeight()).compareTo((Double) (o2.getHeight()));
+        }else {
+            return o1.getAge() - o2.getAge();
+        }
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test {
+    public static void main(String[] args) {
+
+        /**
+         * 使用外部比较器
+         */
+
+       Comparator com = new ExternalCompare();//多态的写法
+        Student s1 = new Student(10, "lili", 160.5);
+        Student s2 = new Student(15, "nana", 170.5);
+        System.out.println(com.compare(s1,s2));
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h2><h3 id="存入Integer数据（底层利用的是内部比较器）"><a href="#存入Integer数据（底层利用的是内部比较器）" class="headerlink" title="存入Integer数据（底层利用的是内部比较器）"></a>存入Integer数据（底层利用的是内部比较器）</h3><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924225313878.png" alt="image-20220924225313878"></p>
+<p>==<strong>特点：数据唯一，并按添加的元素进行升序排列</strong>==</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        TreeSet&lt;Integer&gt; ts = new TreeSet&lt;&gt;();
+        ts.add(12);
+        ts.add(15);
+        ts.add(9);
+        ts.add(3);
+        ts.add(4);
+        ts.add(12);
+
+        System.out.println(ts.size());
+        System.out.println(ts);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924134345772.png" alt="image-20220924134345772"></p>
+<h3 id="原理：底层原理是用二叉树来实现（遍历方式是中序遍历）"><a href="#原理：底层原理是用二叉树来实现（遍历方式是中序遍历）" class="headerlink" title="原理：底层原理是用二叉树来实现（遍历方式是中序遍历）"></a>原理：底层原理是用二叉树来实现（遍历方式是中序遍历）</h3><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924141052630.png" alt="image-20220924141052630"></p>
+<h3 id="存入String类型的数据（底层利用的也是内部比较器）"><a href="#存入String类型的数据（底层利用的也是内部比较器）" class="headerlink" title="存入String类型的数据（底层利用的也是内部比较器）"></a>存入String类型的数据（底层利用的也是内部比较器）</h3><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924225216912.png" alt="image-20220924225216912"></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test01 {
+    public static void main(String[] args) {
+        TreeSet&lt;String&gt; treeSet = new TreeSet&lt;&gt;();
+        treeSet.add("alili");
+        treeSet.add("zlili");
+        treeSet.add("ylili");
+        treeSet.add("flili");
+        treeSet.add("hlili");
+        treeSet.add("mlili");
+        treeSet.add("alili");
+        System.out.println(treeSet);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220924224539479.png" alt="image-20220924224539479"></p>
+<h3 id="存入自定义的Student类型的数据"><a href="#存入自定义的Student类型的数据" class="headerlink" title="存入自定义的Student类型的数据"></a>存入自定义的Student类型的数据</h3><h4 id="利用内部比较器实现："><a href="#利用内部比较器实现：" class="headerlink" title="利用内部比较器实现："></a>利用内部比较器实现：</h4><p>Student类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Student implements Comparable&lt;Student&gt;{
+    private int age;
+    private String name;
+
+    public Student() {
+    }
+
+    public Student(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    //内部比较器
+    @Override
+    public int compareTo(Student o) {
+
+        //比较学生的年龄
+        return this.getAge() - o.getAge();
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test02 {
+    public static void main(String[] args) {
+
+        TreeSet&lt;Student&gt; set = new TreeSet&lt;&gt;();
+        set.add(new Student(19,"lili"));
+        set.add(new Student(20,"lili"));
+        set.add(new Student(10,"lili"));
+        set.add(new Student(30,"lili"));
+        set.add(new Student(9,"lili"));
+        set.add(new Student(3,"lili"));
+
+        System.out.println(set.size());
+        System.out.println(set);
+
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="利用外部比较器实现："><a href="#利用外部比较器实现：" class="headerlink" title="利用外部比较器实现："></a>利用外部比较器实现：</h4><p>Student类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Student {
+    private int age;
+    private String name;
+
+    public Student() {
+    }
+
+    public Student(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>外部比较器</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class ExternalCompare implements Comparator&lt;Student&gt; {
+    @Override
+    public int compare(Student o1, Student o2) {
+        return o1.getAge() - o2.getAge();
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test02 {
+    public static void main(String[] args) {
+
+        //利用外部比较器必须自己指定
+        //一旦指定外部比较器，那么就会按照外部比较器来比较
+        //方法一
+//        Comparator&lt;Student&gt; compare = new ExternalCompare();
+
+        //方法二
+        /*Comparator&lt;Student&gt; compare = new Comparator&lt;Student&gt;() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                return o1.getAge() - o2.getAge();
+            }
+
+        };*/
+
+//        TreeSet&lt;Student&gt; set = new TreeSet&lt;&gt;(compare);
+        //方法三
+        TreeSet&lt;Student&gt; set = new TreeSet&lt;&gt;(new Comparator&lt;Student&gt;() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                return o1.getAge() - o2.getAge();
+            }
+
+        });
+        set.add(new Student(19,"lili"));
+        set.add(new Student(20,"lili"));
+        set.add(new Student(10,"lili"));
+        set.add(new Student(30,"lili"));
+        set.add(new Student(9,"lili"));
+        set.add(new Student(3,"lili"));
+
+        System.out.println(set.size());
+        System.out.println(set);
+
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="Map集合"><a href="#Map集合" class="headerlink" title="Map集合"></a>Map集合</h2><p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925205322395.png" alt="image-20220925205322395"></p>
+<table>
+<thead>
+<tr>
+<th>Modifier and Type</th>
+<th>Method and Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>void</code></td>
+<td><code>clear()</code>  从这个映射中移除所有的映射（可选操作）。</td>
+</tr>
+<tr>
+<td><code>default V</code></td>
+<td><code>compute(K key, BiFunction&lt;? super K,? super V,? extends V&gt; remappingFunction)</code>  试图计算出指定键和当前的映射值的映射（或 <code>null</code>如果没有当前映射）。</td>
+</tr>
+<tr>
+<td><code>default V</code></td>
+<td><code>computeIfAbsent(K key, Function&lt;? super K,? extends V&gt; mappingFunction)</code>  如果指定的键是不是已经与价值相关的（或映射到  <code>null</code>），尝试使用给定的映射功能，进入到这个Map除非 <code>null</code>计算其价值。</td>
+</tr>
+<tr>
+<td><code>default V</code></td>
+<td><code>computeIfPresent(K key, BiFunction&lt;? super K,? super V,? extends V&gt; remappingFunction)</code>  如果指定键的值是存在和非空的，尝试计算一个新的映射，给出了键和它当前的映射值。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>containsKey(Object key)</code>  返回 <code>true</code>如果这Map包含一个指定的键映射。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>containsValue(Object value)</code>  返回 <code>true</code>如果映射到指定的值的一个或多个键。</td>
+</tr>
+<tr>
+<td><code>Set&lt;Map.Entry&lt;K,V&gt;&gt;</code></td>
+<td><code>entrySet()</code>  返回一个 <a href="../../java/util/Set.html"><code>Set</code></a>视图的映射包含在这个Map。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>equals(Object o)</code>  将指定的对象与此映射的相等性进行比较。</td>
+</tr>
+<tr>
+<td><code>default void</code></td>
+<td><code>forEach(BiConsumer&lt;? super K,? super V&gt; action)</code>  在该映射中的每个条目执行给定的操作，直到所有的条目被处理或操作抛出异常。</td>
+</tr>
+<tr>
+<td><code>V</code></td>
+<td><code>get(Object key)</code>  返回指定的键映射的值，或 <code>null</code>如果这个Map不包含的键映射。</td>
+</tr>
+<tr>
+<td><code>default V</code></td>
+<td><code>getOrDefault(Object key, V defaultValue)</code>  返回指定的键映射的值，或 <code>defaultValue</code>如果这个Map不包含的键映射。</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>hashCode()</code>  返回此映射的哈希代码值。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>isEmpty()</code>  返回 <code>true</code>如果这个Map不包含键值的映射。</td>
+</tr>
+<tr>
+<td><code>Set&lt;K&gt;</code></td>
+<td><code>keySet()</code>  返回一个 <a href="../../java/util/Set.html"><code>Set</code></a>的关键视图包含在这个Map。</td>
+</tr>
+<tr>
+<td><code>default V</code></td>
+<td><code>merge(K key, V value, BiFunction&lt;? super V,? super V,? extends V&gt; remappingFunction)</code>  如果指定的键已与值相关联的值或与空值相关联的，则将其与给定的非空值关联。</td>
+</tr>
+<tr>
+<td><code>V</code></td>
+<td><code>put(K key, V value)</code>  将指定的值与此映射中的指定键关联（可选操作）。</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>putAll(Map&lt;? extends K,? extends V&gt; m)</code>  从指定的映射到这个Map（可选操作）复制所有的映射。</td>
+</tr>
+<tr>
+<td><code>default V</code></td>
+<td><code>putIfAbsent(K key, V value)</code>  如果指定的键是不是已经与价值相关的（或映射到  <code>null</code>）将其与给定的值并返回 <code>null</code>，否则返回当前值。</td>
+</tr>
+<tr>
+<td><code>V</code></td>
+<td><code>remove(Object key)</code>  如果存在（可选操作），则从该Map中移除一个键的映射。</td>
+</tr>
+<tr>
+<td><code>default boolean</code></td>
+<td><code>remove(Object key, Object value)</code>  仅当它当前映射到指定的值时，为指定的键移除条目。</td>
+</tr>
+<tr>
+<td><code>default V</code></td>
+<td><code>replace(K key, V value)</code>  仅当它当前映射到某一值时，替换指定的键的条目。</td>
+</tr>
+<tr>
+<td><code>default boolean</code></td>
+<td><code>replace(K key, V oldValue, V newValue)</code>  仅当当前映射到指定的值时，替换指定的键的条目。</td>
+</tr>
+<tr>
+<td><code>default void</code></td>
+<td><code>replaceAll(BiFunction&lt;? super K,? super V,? extends V&gt; function)</code>  将每个条目的值替换为在该项上调用给定函数的结果，直到所有的条目都被处理或函数抛出异常。</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>size()</code>  返回这个映射中的键值映射的数目。</td>
+</tr>
+<tr>
+<td><code>Collection&lt;V&gt;</code></td>
+<td><code>values()</code>  返回一个 <a href="../../java/util/Collection.html"><code>Collection</code></a>视图的值包含在这个Map。</td>
+</tr>
+</tbody></table>
+<h3 id="Map常用的方法"><a href="#Map常用的方法" class="headerlink" title="Map常用的方法"></a>Map常用的方法</h3><h4 id="put-K-key-V-value-将指定的值与此映射中的指定键关联（可选操作）。"><a href="#put-K-key-V-value-将指定的值与此映射中的指定键关联（可选操作）。" class="headerlink" title="put(K key, V value)  将指定的值与此映射中的指定键关联（可选操作）。"></a><code>put(K key, V value)</code>  将指定的值与此映射中的指定键关联（可选操作）。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("lili",10101010);
+        map.put("nana",12345234);
+        map.put("feifei",34563456);
+        map.put("lili",345673456);
+        map.put("mingming",123456789);
+        System.out.println(map.size());
+        System.out.println(map);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925000146376.png" alt="image-20220925000146376"></p>
+<h4 id="clear-从这个映射中移除所有的映射（可选操作）。"><a href="#clear-从这个映射中移除所有的映射（可选操作）。" class="headerlink" title="clear()  从这个映射中移除所有的映射（可选操作）。"></a><code>clear()</code>  从这个映射中移除所有的映射（可选操作）。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("lili",10101010);
+        map.put("nana",12345234);
+        map.put("feifei",34563456);
+        map.put("lili",345673456);
+        map.put("mingming",123456789);
+        System.out.println(map.size());
+        System.out.println(map);
+
+        map.clear();
+
+        System.out.println("=============================");
+        System.out.println(map);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925000640889.png" alt="image-20220925000640889"></p>
+<h4 id="remove-Object-key-如果存在（可选操作），则从该Map中移除一个键的映射。"><a href="#remove-Object-key-如果存在（可选操作），则从该Map中移除一个键的映射。" class="headerlink" title="remove(Object key)  如果存在（可选操作），则从该Map中移除一个键的映射。"></a><code>remove(Object key)</code>  如果存在（可选操作），则从该Map中移除一个键的映射。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("lili",10101010);
+        map.put("nana",12345234);
+        map.put("feifei",34563456);
+        map.put("lili",345673456);
+        map.put("mingming",123456789);
+        System.out.println(map.size());
+        System.out.println(map);
+
+        map.remove("mingming");
+        System.out.println("=======================");
+        System.out.println(map);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925000940251.png" alt="image-20220925000940251"></p>
+<h4 id="containsKey-Object-key-返回-true如果这Map包含一个指定的键映射。"><a href="#containsKey-Object-key-返回-true如果这Map包含一个指定的键映射。" class="headerlink" title="containsKey(Object key)  返回 true如果这Map包含一个指定的键映射。"></a><code>containsKey(Object key)</code>  返回 <code>true</code>如果这Map包含一个指定的键映射。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("lili",10101010);
+        map.put("nana",12345234);
+        map.put("feifei",34563456);
+        map.put("lili",345673456);
+        map.put("mingming",123456789);
+        System.out.println(map.size());
+        System.out.println(map);
+
+        System.out.println(map.containsKey("lili"));
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925001328844.png" alt="image-20220925001328844"></p>
+<h4 id="containsValue-Object-value-返回-true如果映射到指定的值的一个或多个键。"><a href="#containsValue-Object-value-返回-true如果映射到指定的值的一个或多个键。" class="headerlink" title="containsValue(Object value)  返回 true如果映射到指定的值的一个或多个键。"></a><code>containsValue(Object value)</code>  返回 <code>true</code>如果映射到指定的值的一个或多个键。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("lili",10101010);
+        map.put("nana",12345234);
+        map.put("feifei",123456789);
+        map.put("lili",345673456);
+        map.put("mingming",123456789);
+        System.out.println(map.size());
+        System.out.println(map);
+
+        System.out.println(map.containsValue(123456789));
+
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925001501361.png" alt="image-20220925001501361"></p>
+<h4 id="entrySet-返回一个-Set视图的映射包含在这个Map。-即获取map集合中的所有key和value"><a href="#entrySet-返回一个-Set视图的映射包含在这个Map。-即获取map集合中的所有key和value" class="headerlink" title="entrySet()  返回一个 Set视图的映射包含在这个Map。 即获取map集合中的所有key和value"></a><code>entrySet()</code>  返回一个 <a href="../../java/util/Set.html"><code>Set</code></a>视图的映射包含在这个Map。 即获取map集合中的所有key和value</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test01 {
+    public static void main(String[] args) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("lili",10101010);
+        map.put("nana",12345234);
+        map.put("feifei",123456789);
+        map.put("lili",345673456);
+        map.put("mingming",123456789);
+
+        Set&lt;Map.Entry&lt;String, Integer&gt;&gt; entries = map.entrySet();
+        for (Map.Entry&lt;String, Integer&gt; entry : entries) {
+            System.out.println(entry);
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925003211258.png" alt="image-20220925003211258"></p>
+<h4 id="get-Object-key-返回指定的键映射的值，或-null如果这个Map不包含的键映射。"><a href="#get-Object-key-返回指定的键映射的值，或-null如果这个Map不包含的键映射。" class="headerlink" title="get(Object key)  返回指定的键映射的值，或 null如果这个Map不包含的键映射。"></a><code>get(Object key)</code>  返回指定的键映射的值，或 <code>null</code>如果这个Map不包含的键映射。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test01 {
+    public static void main(String[] args) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("lili",10101010);
+        map.put("nana",12345234);
+        map.put("feifei",123456789);
+        map.put("lili",345673456);
+        map.put("mingming",123456789);
+
+        System.out.println(map.get("lili"));
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="keySet-返回一个-Set的关键视图包含在这个Map。即获取map集合中所有的key"><a href="#keySet-返回一个-Set的关键视图包含在这个Map。即获取map集合中所有的key" class="headerlink" title="keySet()  返回一个 Set的关键视图包含在这个Map。即获取map集合中所有的key"></a><code>keySet()</code>  返回一个 <a href="../../java/util/Set.html"><code>Set</code></a>的关键视图包含在这个Map。即获取map集合中所有的key</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test01 {
+    public static void main(String[] args) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("lili",10101010);
+        map.put("nana",12345234);
+        map.put("feifei",123456789);
+        map.put("lili",345673456);
+        map.put("mingming",123456789);
+        Set&lt;String&gt; strings = map.keySet();
+        for (String string : strings) {
+            System.out.println(string);
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="-3"><a href="#-3" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925002630156.png" alt="image-20220925002630156"></h4><h4 id="values-返回一个-Collection视图的值包含在这个Map。-即获取map集合中所有的value"><a href="#values-返回一个-Collection视图的值包含在这个Map。-即获取map集合中所有的value" class="headerlink" title="values()  返回一个 Collection视图的值包含在这个Map。 即获取map集合中所有的value"></a><code>values()</code>  返回一个 <a href="../../java/util/Collection.html"><code>Collection</code></a>视图的值包含在这个Map。 即获取map集合中所有的value</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test01 {
+    public static void main(String[] args) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("lili",10101010);
+        map.put("nana",12345234);
+        map.put("feifei",123456789);
+        map.put("lili",345673456);
+        map.put("mingming",123456789);
+
+        Collection&lt;Integer&gt; values = map.values();
+        for (Integer value : values) {
+            System.out.println(value);
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925002800499.png" alt="image-20220925002800499"></p>
+<h4 id="equals-Object-o-将指定的对象与此映射的相等性进行比较。"><a href="#equals-Object-o-将指定的对象与此映射的相等性进行比较。" class="headerlink" title="equals(Object o)  将指定的对象与此映射的相等性进行比较。"></a><code>equals(Object o)</code>  将指定的对象与此映射的相等性进行比较。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test01 {
+    public static void main(String[] args) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("lili",10101010);
+        map.put("nana",12345234);
+        map.put("feifei",123456789);
+        map.put("lili",345673456);
+        map.put("mingming",123456789);
+
+        Map&lt;String,Integer&gt; map1 = new HashMap&lt;&gt;();
+        map1.put("lili",10101010);
+        map1.put("nana",12345234);
+        map1.put("feifei",123456789);
+        map1.put("lili",345673456);
+        map1.put("mingming",123456789);
+
+        System.out.println(map == map1);//判断map与map1的内存地址是否相等
+        System.out.println(map.equals(map1));//判断map与map1中的元素是否相等
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="isEmpty-返回-true如果这个Map不包含键值的映射。"><a href="#isEmpty-返回-true如果这个Map不包含键值的映射。" class="headerlink" title="isEmpty()  返回 true如果这个Map不包含键值的映射。"></a><code>isEmpty()</code>  返回 <code>true</code>如果这个Map不包含键值的映射。</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test01 {
+    public static void main(String[] args) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("lili",10101010);
+        map.put("nana",12345234);
+        map.put("feifei",123456789);
+        map.put("lili",345673456);
+        map.put("mingming",123456789);
+
+
+        System.out.println(map.isEmpty());
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h3><ul>
+<li><p>特点：唯一，有序（按照升序或降序排列）</p>
+</li>
+<li><p>原理：二叉树，key遵循二叉树的特点，放入集合的数据对应的类型一定要实现比较器（内部比较器或外部比较器）</p>
+</li>
+</ul>
+<h4 id="key的类型是String类型"><a href="#key的类型是String类型" class="headerlink" title="key的类型是String类型"></a>key的类型是String类型</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class test {
+    public static void main(String[] args) {
+        Map&lt;String, Integer&gt; map = new TreeMap&lt;&gt;();
+        map.put("alili",123);
+        map.put("glili",321);
+        map.put("clili",213);
+        map.put("blili",132);
+        System.out.println(map.size());
+        System.out.println(map);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925104715479.png" alt="image-20220925104715479"></p>
+<h4 id="key的类型是一个自定义的引用数据类型（Student）"><a href="#key的类型是一个自定义的引用数据类型（Student）" class="headerlink" title="key的类型是一个自定义的引用数据类型（Student）"></a>key的类型是一个自定义的引用数据类型（Student）</h4><p>此时必须要实现比较器（内部比较器或外部比较器），要不然就会报如下的错误</p>
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925105513966.png" alt="image-20220925105513966"></p>
+<h5 id="实现内部比较器（Comparable）"><a href="#实现内部比较器（Comparable）" class="headerlink" title="实现内部比较器（Comparable）"></a>实现内部比较器（Comparable<t>）</t></h5><p>Student类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Student implements Comparable&lt;Student&gt;{
+    private int age;
+    private String name;
+    private double height;
+
+    public Student() {
+    }
+
+    public Student(int age, String name, double height) {
+        this.age = age;
+        this.name = name;
+        this.height = height;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                ", height=" + height +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        //按年龄进行排序
+        /*return this.getAge() - o.getAge();*/
+
+        //按名字进行排序】
+        //return this.getName().compareTo(o.getName());
+
+        //按身高进行排序
+        return ((Double)(this.getHeight())).compareTo((Double)(o.getHeight()));
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test02 {
+    public static void main(String[] args) {
+          Map&lt;Student, Integer&gt; map = new TreeMap&lt;&gt;();
+          map.put(new Student(19,"lili",170.5),1001);
+          map.put(new Student(18,"nana",171.5),1002);
+          map.put(new Student(19,"lili",170.5),1023);
+          map.put(new Student(19,"lili",170.5),1009);
+          map.put(new Student(19,"lili",170.5),1011);
+
+        System.out.println(map.size());
+
+        System.out.println(map);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925114655039.png" alt="image-20220925114655039"></p>
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925114800505.png" alt="image-20220925114800505"></p>
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925114928893.png" alt="image-20220925114928893"></p>
+<h5 id="实现外部比较器"><a href="#实现外部比较器" class="headerlink" title="实现外部比较器"></a>实现外部比较器</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class ExternalCompare implements Comparator&lt;Student&gt; {
+    @Override
+    public int compare(Student o1, Student o2) {
+        //将年龄作为key进行排序
+       // return o1.getAge() - o2.getAge();
+        
+        
+        //将身高作为key进行排序
+//        return ((Double) o1.getHeight()).compareTo((Double) (o2.getHeight()));
+        
+        //以名字作为key进行排序
+        return o1.getName().compareTo(o2.getName());
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test02 {
+    public static void main(String[] args) {
+
+       /* Map&lt;Student, Integer&gt; map = new TreeMap&lt;&gt;(new Comparator&lt;Student&gt;() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                //将年龄作为key进行排序
+                // return o1.getAge() - o2.getAge();
+
+
+                //将身高作为key进行排序
+                //return ((Double) o1.getHeight()).compareTo((Double) (o2.getHeight()));
+
+                //以名字作为key进行排序
+                return o1.getName().compareTo(o2.getName());
+            }
+        });*/
+        
+          Comparator&lt;Student&gt; comparator = new ExternalCompare();
+          Map&lt;Student, Integer&gt; map = new TreeMap&lt;&gt;(comparator);
+          map.put(new Student(19,"lili",170.5),1001);
+          map.put(new Student(18,"nana",171.5),1002);
+          map.put(new Student(15,"anan",178.5),1023);
+          map.put(new Student(56,"juju",175.5),1009);
+          map.put(new Student(25,"lili",176.5),1011);
+
+        System.out.println(map.size());
+
+        System.out.println(map);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>重要属性</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class HashMap&lt;K,V&gt; extends AbstractMap&lt;K,V&gt;
+    implements Map&lt;K,V&gt;, Cloneable, Serializable {
+    
+    static final int DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4; //定义了一个16,一会要赋给数组的长度
+    static final int MAXIMUM_CAPACITY = 1 &lt;&lt; 30; 
+    static final float DEFAULT_LOAD_FACTOR = 0.75f;  //定义了一个值:0.75负载因子，加载因子
+    transient Node&lt;K,V&gt;[] table;//底层主数组
+    transient int size;//添加的元素的数量
+    int threshold;//定义个变量,没赋值默认为0 ，--&gt;这个变量是用来表示数组扩容的边界值,门槛值
+    final float loadFactor;//这个变量用来接收:装填因子，负载因子，加载因子
+    
+    
+    //无参构造器
+    public HashMap() {
+        this.loadFactor = DEFAULT_LOAD_FACTOR; // all other fields defaulted
+    }
+    
+    //有参构造器
+    public HashMap(int initialCapacity, float loadFactor) {
+        if (initialCapacity &lt; 0)
+            throw new IllegalArgumentException("Illegal initial capacity: " +
+                                               initialCapacity);
+        if (initialCapacity &gt; MAXIMUM_CAPACITY)
+            initialCapacity = MAXIMUM_CAPACITY;
+        if (loadFactor &lt;= 0 || Float.isNaN(loadFactor))
+            throw new IllegalArgumentException("Illegal load factor: " +
+                                               loadFactor);
+        this.loadFactor = loadFactor;
+        this.threshold = tableSizeFor(initialCapacity);
+    }
+
+}
+    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a>Collections工具类</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+
+
+        //Collections不支持创建对象，因为构造器私有化了
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add("aa");
+        list.add("bb");
+        list.add("vv");
+        list.add("cc");
+        Collections.addAll(list,"dd","ee","zz");
+        Collections.addAll(list,new String[]{"kk","jj","mm"});
+        System.out.println(list);
+
+
+        //binarySearch必须在有序集合中查找
+        Collections.sort(list);//升序排列
+        System.out.println(list);
+
+        //二分查找
+        System.out.println(Collections.binarySearch(list, "ee"));
+
+        System.out.println("=========================================");
+
+        //copy
+        ArrayList&lt;String&gt; list1 = new ArrayList&lt;&gt;();
+        Collections.addAll(list1,"tt","ss");
+        Collections.copy(list,list1);//将list1的内容替换到list上的对应位置
+
+        System.out.println(list);
+        System.out.println(list1);
+
+
+        System.out.println("==============================================");
+        //fill用指定元素替换指定列表的所有元素
+        Collections.fill(list1,"zzz");//用zzz替换指定列表list1中的所有元素
+        System.out.println(list1);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/rookiesnewbie/images/master/images/image-20220925172816182.png" alt="image-20220925172816182"></p>
+</b></b></b>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">BlogLee</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://rookiesnewbie.github.io/2023/03/03/ji-he/">https://rookiesnewbie.github.io/2023/03/03/ji-he/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">BlogLee</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java%E9%9B%86%E5%90%88/">
+                                    <span class="chip bg-color">Java集合</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/03/03/hadoop/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Hadoop">
+                        
+                        <span class="card-title">Hadoop</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            BlogLee
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/03/03/docker2022/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Docker升级版">
+                        
+                        <span class="card-title">Docker升级版</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            BlogLee
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/about" target="_blank">BlogLee</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">215k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "3";
+                        var startDate = "3";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/rookiesnewbie" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2049448867@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2049448867" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2049448867" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
